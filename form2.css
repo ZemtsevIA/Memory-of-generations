@@ -1,0 +1,183 @@
+.info {
+    position: relative;
+    min-height: 95vh; /* Занимаем всю высоту экрана */
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали */
+    background-color: #A02020;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.group{
+    margin-top: 10%;
+    background-color: white;
+    border-radius: 50px;
+    width: 80%;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Nekst-SemiBold', sans-serif;
+    text-align: center;
+    font-size: 3.5rem;
+    font-size: clamp(24px, 3.5vw, 60px);
+    margin: 100px 0 40px 0; /* Отступ снизу для текста */
+    z-index: 1; /* Поднимаем над фоном */
+}
+
+.info-text {
+    display: flex;
+    align-items: center; /* Выравнивание элементов по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    gap: 40px; /* Расстояние между текстом и изображением */
+    max-width: 1200px; /* Ограничение ширины контента */
+    width: 100%;
+    z-index: 1;
+    justify-content: space-between;
+}
+
+.info-text p {
+    font-family: 'Nekst-Thin', sans-serif;
+    flex: 1; /* Занимает доступное пространство */
+    margin-left: 40px;
+    font-size: 1.7rem;
+    text-align: left;
+    max-width: calc(50% - 20px);
+    
+}
+
+.image-info {
+    width: 50%; /* Фиксированная ширина изображения */
+    height: auto; /* Сохраняем пропорции */
+    flex-shrink: 0; /* Запрещаем уменьшение */
+    max-width: calc(50% - 20px); /* Учитывает gap 40px */
+    object-fit: contain;
+}
+
+.fon {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    object-fit: cover; /* Для правильного отображения фона */
+    opacity: 0.3; /* Чтобы текст был читаемым */
+}
+
+.info-button{
+    color: black;
+    background-color: white;
+    border: none;
+    padding: 1vw 2vw;
+    font-size: 1.2vw;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Nekst-Light', sans-serif;
+    height: auto;
+    z-index: 5;
+    margin-top: 10vh; /* Относительная единица вместо 200px */
+    width: auto; /* Чтобы кнопка не была слишком широкой */
+    min-width: 200px;
+
+
+}
+
+.info-button:hover {
+  background-color: #f0f0f0; /* Светло-серый фон при наведении */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  transform: translateY(-2px); /* Небольшое поднятие кнопки */
+}
+
+
+
+@font-face {
+    font-family: 'Nekst-SemiBold';
+    src: url('font/Nekst-SemiBold.woff2') format('woff2'),
+         url('font/Nekst-SemiBold.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nekst-Thin';
+    src: url('font/Nekst-Thin.woff2') format('woff2'),
+         url('font/Nekst-Thin.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+
+
+@media (max-width: 768px) {
+
+    .info {
+        /*min-height: 500px; /* Уменьшаем высоту */
+        max-height: 700px;
+        /*padding: 15px;*/
+
+        min-height: auto !important; /* Убираем фиксированную высоту */
+        padding: 20px 0; /* Пересматриваем вертикальные отступы */
+        gap: 0; /* Убираем промежутки между дочерними элементами */
+    }
+
+    .group {
+      width: 95%;
+      height: auto;
+      /*padding: 30px 0;
+      border-radius: 30px;*/
+      max-height: 900px;
+
+      margin-top: 5% !important; /* Уменьшаем верхний отступ */
+      padding: 20px 15px !important; /* Оптимизируем внутренние отступы */
+      border-radius: 25px !important;
+
+      
+    }
+  
+    h1 {
+      margin: 40px 20px 30px;
+      font-size: clamp(22px, 8vw, 32px);
+      line-height: 1.3;
+    }
+  
+    .info-text {
+      flex-direction: column;
+      /*gap: 30px;*/
+      padding: 0 20px;
+      gap: 15px !important;
+    }
+  
+    .info-text p {
+      margin-left: 0;
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 100% !important;
+      line-height: 1.5;
+    }
+  
+    .image-info {
+      width: 80%;
+      max-width: 300px !important;
+      order: -1; /* Изображение перед текстом */
+      margin-bottom: 20px;
+    }
+
+    .info-button {
+        /*margin-top: 30px;*/
+        padding: 12px 30px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 200px;
+        margin-top: 20px !important;
+    }
+  
+    .fon {
+      opacity: 0.2; /* Увеличиваем видимость фона */
+    }
+
+   
+  }

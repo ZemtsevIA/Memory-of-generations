@@ -1,0 +1,191 @@
+.hero-section {
+    
+    position: relative;
+    width: 100%;
+    
+}
+
+.blurred-image-container {
+    width: 100%;
+    overflow: hidden;
+    height: auto; /* Сохраняет пропорции изображения */
+    display: block; /* Убирает лишние отступы */
+}
+
+.blurred-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    
+}
+
+
+
+.hero-text h1 {
+    margin-top: 20vh;
+    /*font-size: 4.5vw;*/
+    font-size: clamp(32px, 4.5vw, 100px);
+    /*margin-bottom: 1.5vw;*/
+    font-family: 'Nekst-Bold', sans-serif;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 1.0);
+    margin-bottom: 20px;
+    
+}
+
+.hero-text p {
+    /*font-size: 1.25vw;*/
+    /*margin-bottom: 2vw;*/
+    font-family: 'Nekst-Light', sans-serif;
+    color: black;
+    /*padding-top: 5px;*/
+    border-radius: 50px;
+    background-color: white;
+    /*width: 880px;*/
+    /*height: 35px;*/
+    text-align: center;
+    margin: auto;
+
+
+    width: 90%; /* вместо 880px */
+    max-width: 880px; /* ограничение для больших экранов */
+    height: auto; /* вместо 35px */
+    padding: 10px 20px; /* адаптивные отступы */
+    font-size: clamp(14px, 2vw, 18px); /* плавное изменение шрифта */
+
+}
+
+.hero-button {
+    background-color: #A02020;
+    color: white;
+    border: none;
+    padding: 1vw 2vw;
+    font-size: 1.2vw;
+    border-radius: 50px;
+    cursor: pointer;
+    /*margin-top: 200px;*/
+    /*width: 230px;*/
+    transition: background-color 0.3s;
+    font-family: 'Nekst-Light', sans-serif;
+    height: auto;
+    
+    margin-top: 20vh; /* Относительная единица вместо 200px */
+    width: auto; /* Чтобы кнопка не была слишком широкой */
+    min-width: 200px; /* Минимальная ширина */
+}
+
+.hero-button:hover {
+    background-color: #7a1818;
+}
+
+
+.angle {
+    transform: rotate(90deg);
+    margin-top: 50px;
+    width: 100px; /* Оставляем фиксированную ширину */
+    height: 100px; /* Оставляем фиксированную высоту */
+    animation: float 2s ease-in-out infinite;
+    cursor: pointer; /* Добавляем указатель при наведении */
+    transition: 0.3s all ease;
+
+    /* Добавляем новые стили */
+    max-width: 10%; /* Ограничиваем максимальную ширину */
+    max-height: 10%; /* Ограничиваем максимальную высоту */
+    margin-left: auto; /* Центрируем по горизонтали */
+    margin-right: auto; /* Центрируем по горизонтали */
+    display: block; /* Делаем блочным элементом для корректного центрирования */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: rotate(90deg) translateX(0);
+        opacity: 0.9;
+    }
+    50% {
+        transform: rotate(90deg) translateX(20px);
+        opacity: 0.6;
+    }
+}
+
+/* Эффекты при наведении */
+.angle:hover {
+    animation-duration: 1s;
+    opacity: 1 !important;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+
+@media (max-width: 768px) {
+
+    .blurred-image{
+        max-height: 500px;
+    }
+
+    .hero-section {
+        /*min-height: 60vh; /* Гарантирует высоту для позиционирования */
+        min-height: auto !important; /* Убираем фиксированную высоту */
+        /*padding-bottom: 20px; /* Добавляем отступ снизу */
+    }
+    
+    .hero-text h1 { 
+        /*margin-top: 5%; */ 
+        line-height: 1.3; /* Улучшает читаемость */       
+        transform: scale(0.9); /* Автоматическое масштабирование */
+        white-space: normal;
+        margin-top: 10vh !important;
+    }
+    
+    .blurred-image-container {
+        /*height: 60vh; /* Фиксированная высота контейнера */
+        height: 50vh !important;
+        background-color: #A02020;
+    }
+    
+    .hero-text {
+        width: 95%; /* Увеличиваем область текста */
+        padding: 15px; /* Защита от прилипания к краям */
+        top: 45%;
+        transform: translate(-50%, -40%);
+    }
+
+    .hero-text p {
+        width: 95%; /* Уже на маленьких экранах */
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-button{
+        /*font-size: 3.0vw;*/
+        font-size: clamp(16px, 3.0vw, 32px);
+        min-height: 44px;
+        padding: 7px 10px;
+        text-align: center;
+        /*margin-top: 5vh;*/
+        margin-top: 10vh !important;
+    }
+
+    .angle {
+        display: none; /* Скрыть стрелку на мобильных */
+    }
+}
+
+
+@font-face {
+    font-family: 'Nekst-Light';
+    src: url('font/Nekst-Light.woff2') format('woff2'),
+         url('font/Nekst-Light.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}

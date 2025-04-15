@@ -1,0 +1,312 @@
+.footer {
+    background: linear-gradient(50deg, #A02020 0%, #A02020 40%, #ffffff 40%, #ffffff 100%);
+    color: #ffffff;
+    height: 200px;
+    position: relative;
+    bottom: 0;
+    
+    width: 100%;
+    
+}
+
+.footer-diagonal {
+    display: flex;
+    color: #FFF3E2;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    height: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: -150px;
+    
+}
+
+.footer-logo img {
+    margin-top: 40px;
+    height: 40px;
+    margin-right: 10px;
+    max-width: 100%; /* Логотип не будет превышать ширину контейнера */
+    height: auto; /* Сохраняет пропорции */
+    max-height: 40px; /* Ограничение по высоте */
+}
+
+.footer-logo-container {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.footer-logo-two {
+    position: absolute;
+    left: -150px;
+    top: 100%; /* Позиционирование сразу под основным лого */
+    margin-top: 2.0rem;
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.footer-logo-two img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.footer-menu {
+    margin-top: 20%;
+    display: flex;
+    gap: 2rem;
+    margin-left: auto; /* Сдвигаем меню вправо */
+    padding: 0;
+    list-style: none;
+    
+}
+
+.footer-menu li {
+    min-width: max-content;
+}
+
+.footer-menu a {
+    font-family: 'Nekst-Thin', sans-serif;
+    color: black;
+    text-decoration: none;
+    font-size: clamp(20px, 1.3vw, 64px);
+    transition: opacity 0.3s ease;
+}
+
+
+
+.footer-menu a:hover {
+    opacity: 0.8;
+}
+
+
+.footer-right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-right: 5%;
+}
+
+.footer-question {
+    font-family: 'Nekst-Thin', sans-serif;
+    color: black;
+    text-decoration: underline;
+    font-size: clamp(20px, 1.0vw, 64px);
+    transition: opacity 0.3s;
+    
+}
+
+.footer-question:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.footer-right-section p{
+    color: black;
+    font-family: 'Nekst-Thin', sans-serif;
+    font-size: clamp(16px, 1.0vw, 64px);
+    font-style: italic;
+}
+
+
+
+
+@media (min-width: 1201px) {
+    .footer-diagonal {
+        max-width: 1350px; /* Увеличиваем максимальную ширину контейнера */
+        padding: 2rem 5%; /* Добавляем адаптивные отступы */
+    }
+
+    .footer-logo {
+        left: calc(-10% + 20px); /* Динамическое позиционирование */
+    }
+
+    .footer-logo-two {
+        left: calc(-10% + 20px);
+        max-width: 450px; /* Увеличиваем максимальную ширину */
+    }
+
+    .footer-logo img {
+        margin-top: 30px; /* Корректируем отступ */
+        height: 45px; /* Увеличиваем размер лого */
+    }
+
+    .footer-logo-two img {
+        height: 55px; /* Увеличиваем размер дополнительных лого */
+    }
+}
+
+@media (min-width: 1400px) {
+    .footer-diagonal {
+        max-width: 1440px; /* Для очень широких экранов */
+        padding: 2rem 2%;
+    }
+
+    .footer-logo {
+        left: calc(-5% + 30px); /* Дополнительная корректировка позиции */
+    }
+
+    .footer-logo-two {
+        left: calc(-5% + 30px);
+        max-width: 500px;
+    }
+}
+
+
+
+
+@media (max-width: 1200px) {
+    .footer-diagonal {
+        padding: 2rem 5%;
+        max-width: 100%;
+    }
+    
+    .footer-logo {
+        left: -10%;
+    }
+    
+    .footer-logo-two {
+        left: -10%;
+        max-width: 350px;
+    }
+    
+    .footer-menu {
+        margin-top: 15%;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-logo {
+        left: 0;
+        margin-right: auto;
+    }
+    
+    .footer-logo-two {
+        left: 0;
+        max-width: 300px;
+    }
+    
+    .footer-menu {
+        margin-top: 10%;
+        gap: 1rem;
+    }
+    
+    .footer-menu a {
+        font-size: clamp(18px, 1.2vw, 24px);
+    }
+    
+    .footer-question {
+        font-size: clamp(18px, 1.0vw, 20px);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .footer {
+        height: auto;
+        background: #A02020 !important; /* Основной цвет фона */
+        padding: 2rem 1rem;
+    }
+
+    .footer-diagonal {
+        flex-direction: column;
+        padding: 1rem;
+        height: auto;
+        gap: 2rem;
+    }
+
+    .footer-logo-container {
+        align-items: center; /* Выравнивание по центру */
+        justify-content: center; /* Выравнивание по центру */
+        text-align: center; /* Для текстового содержимого */
+    }
+
+    .footer-logo {
+        left: auto !important; /* Убираем абсолютное позиционирование */
+        position: static; /* Возвращаем элемент в нормальный поток */
+        margin: 0 auto; /* Дополнительное центрирование */
+    }
+
+    .footer-logo img {
+        margin-top: 0;
+        height: 35px;
+        filter: brightness(0) invert(1); /* Инвертируем логотипы для видимости */
+    }
+
+    .footer-logo-two {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .footer-logo-two img {
+        height: 40px;
+        filter: brightness(0) invert(1); /* Белые логотипы */
+    }
+
+    .footer-right-section {
+        order: 1;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-menu {
+        margin-top: 0;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 0;
+        width: 100%;
+    }
+
+    .footer-menu li {
+        /* Убраны все стили кнопок */
+        min-width: auto;
+        padding: 0;
+        background: none;
+    }
+
+    .footer-menu a {
+        color: #FFF3E2 !important; /* Белый цвет текста */
+        font-size: 1.1rem;
+        text-decoration: none;
+        font-family: 'Nekst-Thin', sans-serif;
+        transition: opacity 0.3s ease;
+    }
+
+    .footer-menu a:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+    }
+
+    .footer-question {
+        margin: 1.5rem 0;
+        font-size: 1rem;
+        color: #FFF3E2 !important; /* Белый цвет текста */
+    }
+
+    .footer-right-section p {
+        font-size: 0.9rem;
+        color: #FFF3E2 !important; /* Белый цвет текста */
+    }
+}

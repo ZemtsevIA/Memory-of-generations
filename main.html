@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Память поколений ТУСУР</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="form2.css">
+    <link rel="stylesheet" href="form3.css">
+    <link rel="stylesheet" href="form4.css">
+    <link rel="stylesheet" href="form5.css">
+    <link rel="stylesheet" href="form6.css">
+    <link rel="stylesheet" href="footer.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    
+</head>
+<body>
+    <header class="header">
+        <div class="header-diagonal">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="ТУСУР_ 1.png" alt="Логотип">
+                </div>
+            </div>
+            
+
+            <button class="mobile-menu-btn">☰</button>
+
+            <ul class="nav-menu">
+                <li><a href="main.html">О платформе</a></li>
+                <li><a href="veterans.html">Ветераны</a></li>
+                <li><a href="map.html">Карта</a></li>
+                <li><a href="awards.html">Награды</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="blurred-image-container">
+            <img src="image 158.png" alt="Размытое изображение" class="blurred-image">
+        </div>
+        <div class="hero-text">
+            <h1>ПАМЯТЬ ПОКОЛЕНИЙ: ТУСУР</h1>
+            <p>Сохраняем память, чтим подвиг - живое наследие героев ТУСУРа для будущего!</p>
+            <button class="hero-button" id="scrol-button1">Узнать больше</button>
+            <div>
+                <img src="angle.png" alt="Стрелка вниз" class="angle" id="scrol1">
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="info" id="to-scrol1">
+        <img src="image-Photoroom (4) 1.png" alt="Фон" class="fon">
+        <div class="group" >
+            <h1>"Память поколений: ТУСУР"</h1>
+            <div class="info-text"  >
+                <p> — это платформа, объединяющая прошлое и будущее, чтобы сохранить и передать потомкам истории подвигов ветеранов Великой Отечественной войны, служащие примером мужества, стойкости и любви к Родине.</p>
+                <img src="Mask group.png" alt="Фото ТУСУР" class="image-info">
+            </div>
+        </div>
+        <button class="info-button" id="scrol-button2">Далее</button>
+    </div>
+
+    <div class="historys" id="to-scrol2">
+        <h1>Истории доблести и мужества</h1>
+        <p>В разделе «Ветераны» представлены истории сотрудников ТУСУРа, <br> 
+            служивших в Великой Отечественной войне, их вклад и жертвы.
+        </p>
+        <div class="cards-container">
+            <!-- Карточка 1 -->
+            <div class="card">
+                <img src="Mask group1.png" alt="Фото ветерана">
+                <h3>Овсянников</h3>
+                <h4>Всеволод Петрович</h4>
+                <p>Родился в 1919 году.</p>
+                <p>Награждён Орденом Красной Звезды</p>
+            </div>
+
+            <div class="card">
+                <img src="Mask group2.png" alt="Фото ветерана">
+                <h3>Суслов</h3>
+                <h4>Иннокентий Алексеевич</h4>
+                <p>Родился в 1917 году.</p>
+                <p>Награждён Орденом Красной Звезды</p>
+            </div>
+
+            <div class="card">
+                <img src="Mask group3.png" alt="Фото ветерана">
+                <h3>Югин</h3>
+                <h4>Константин Ванович</h4>
+                <p>Родился в 1918 году.</p>
+                <p>Награждён Орденом Красной Звезды</p>
+            </div>
+        </div>
+
+        <button class="hero-button">Читать больше</button>        
+    </div>
+
+    <div class="Map">
+        <h1>Карта боевых действий</h1>
+        <div id="map">
+            <script src="https://api-maps.yandex.ru/2.1/?apikey=ae60709a-681b-4c46-8d11-f0e7178c9b99&lang=ru_RU"></script>
+        </div>
+        <div class="map-overlay">
+            <div class="overlay-content">
+                <p>С помощью интерактивной карты вы сможете узнать об основных сражениях, в которых участвовали ветераны, работающие в ТУСУРе</p>
+                <button class="overlay-btn">Смотреть</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <h1>Галерея наград</h1>
+        <p>В разделе “Галерея наград” представлена информация о наградах, полученных ветеранами в годы Великой Отечественной Войны, в последующем работающими в  ТУСУРе</p>
+ 
+        
+        <div class="awards-grid">
+            <div class="awards-card">
+                <img src="Awards/image 160.png" alt="Изображение награды">
+                <h3>Орден</h3>
+                <h4>Красной звезды</h4>
+            </div>
+
+            <div class="awards-card">
+                <img src="Awards/image 161.png" alt="Изображение награды">
+                <h3>Медаль</h3>
+                <h4>"За боевые заслуги"</h4>
+            </div>
+
+            <div class="awards-card">
+                <img src="Awards/image 162.png" alt="Изображение награды">
+                <h3>Медаль</h3>
+                <h4>"За оборону</h4>
+                <h4>Ленинграда"</h4>
+            </div>
+
+            <div class="awards-card">
+                <img src="Awards/image 163.png" alt="Изображение награды">
+                <h3>Медаль</h3>
+                <h4>"За отвагу"</h4>
+            </div>
+
+            <div class="awards-card">
+                <img src="Awards/image 164.png" alt="Изображение награды">
+                <h3>Орден Славы</h3>
+                <h4>"||| степени"</h4>
+            </div>
+
+            <div class="awards-card">
+                <img src="Awards/image 165.png" alt="Изображение награды">
+                <h3>Орден</h3>
+                <h4>Отечественной войны</h4>
+                <h4>"|| степени"</h4>
+            </div>
+        </div>
+
+        <button class="info-button">Читать больше</button>
+
+    </div>
+
+    
+    <div class="slide-section"> 
+        <div class="result">
+            <img src="image 159.png" alt="ТУСУР">
+            <div class="text-content">
+                <h1>ПАМЯТЬ ПОКОЛЕНИЙ:<br>ТУСУР</h1>
+                <p>Сохраняем память, чтим подвиг!<br>Живое наследие героев ТУСУРа для будущего!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-diagonal">
+            <div class="footer-logo-container">
+                <div class="footer-logo">
+                    <img src="ТУСУР_ 1.png" alt="Логотип">
+                </div>
+                <div class="footer-logo-two">
+                    <img src="IT-ACADEMY_White.png" alt="Логоти ит-академии">
+                    <img src="Цифровые волонтеры лого.png" alt="Логотип цифровых волонтёров">
+                </div>
+            </div>
+
+            <div class="footer-right-section">
+                <ul class="footer-menu">
+                    <li><a href="main.html">О платформе</a></li>
+                    <li><a href="veterans.html">Ветераны</a></li>
+                    <li><a href="map.html">Карта</a></li>
+                    <li><a href="awards.html">Награды</a></li>
+                </ul>
+
+                <a href="https://vk.com/zemec_44" target="_blank" class="footer-question">Есть вопрос? Задавайте</a>
+
+                <p>Вся информация взята из открытых источников</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nekst', sans-serif;
+}
+
+body {
+    background-color: #FFF3E2;
+}
+
+.header {
+    background: linear-gradient(45deg, #A02020 0%, #A02020 40%, #FFF3E2 40%, #FFF3E2 100%);
+    color: #FFF3E2;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-diagonal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    height: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    /* Убираем left: -150px */
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+    max-width: 100%;
+    height: auto;
+    max-height: 40px;
+}
+
+.logo-container {
+    flex-shrink: 0;
+    max-width: 60%;
+    padding: 10px 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    /* Убираем right: -150px */
+    font-size: 20px; /* Сохраняем ваш размер текста */
+}
+
+.nav-menu li {
+    margin-left: 1.5rem;
+}
+
+.nav-menu a {
+    color: #A02020;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-menu a:hover {
+    color: #7a1818;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #A02020;
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #FFF3E2;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Для экранов до 1440px */
+@media (max-width: 1440px) {
+    .header-diagonal {
+        padding: 1.5rem 2rem;
+    }
+
+    .logo img {
+        max-height: 35px;
+    }
+
+    .nav-menu {
+        font-size: 18px; /* Слегка уменьшаем размер текста */
+    }
+}
+
+/* Для экранов до 1200px */
+@media (max-width: 1200px) {
+    .header-diagonal {
+        padding: 1rem 1.5rem;
+    }
+
+    .logo img {
+        max-height: 30px;
+    }
+
+    .nav-menu {
+        font-size: 16px; /* Слегка уменьшаем размер текста */
+    }
+
+    .nav-menu li {
+        margin-left: 1rem;
+    }
+}
+
+/* Для экранов до 992px */
+@media (max-width: 992px) {
+    .header-diagonal {
+        padding: 0.5rem 1rem;
+    }
+
+    .logo img {
+        max-height: 25px;
+    }
+
+    .nav-menu {
+        font-size: 14px; /* Слегка уменьшаем размер текста */
+    }
+
+    .nav-menu li {
+        margin-left: 0.5rem;
+    }
+}
+
+/* Для экранов до 768px (мобильная версия) */
+@media (max-width: 768px) {
+    .header {
+        background: #A02020;
+        padding: 1rem;
+    }
+
+    .header-diagonal {
+        padding: 1rem;
+        justify-content: space-between;
+    }
+
+    .logo {
+        max-width: 150px;
+        overflow: hidden;
+        max-width: 120px;
+    }
+
+    .logo-container {
+        max-width: 180px;
+        padding: 5px 0;
+        min-width: 120px;
+        flex-shrink: 1;
+    }
+
+    .logo img {
+        width: auto;
+        max-height: 35px;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 100px;
+        left: -100%;
+        background-color: #A02020;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transition: left 0.3s;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+
+    .nav-menu a {
+        color: #FFF3E2;
+    }
+
+    .nav-menu a:hover {
+        color: #ffffff;
+    }
+
+    .nav-menu a::after {
+        background-color: #FFF3E2;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        position: relative;
+        z-index: 101;
+    }
+}

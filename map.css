@@ -1,0 +1,76 @@
+.Map {
+    position: relative;
+    width: 100%;
+    height: 95vh; /* Высота контейнера */
+    background-color: #FFF3E2;
+    padding: 0;
+    margin-top: 0;
+    overflow: visible;
+    text-align: center;
+
+    /* Добавляем Flexbox для вертикального и горизонтального центрирования */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    gap: 20px;
+}
+
+.Map #map {
+    
+    height: 100%!important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.Map h1 {
+    padding-top: 20px;
+    font-family: 'Nekst-SemiBold', sans-serif;
+    text-align: center;
+    font-size: clamp(32px, 2.5vw, 100px);
+    margin-bottom: 10px; /* Добавляем отступ между заголовком и параграфом */
+}
+
+.Map p {
+    max-width: 75%;
+    font-family: 'Nekst-Light', sans-serif;
+    text-align: center;
+    font-size: clamp(20px, 1.5vw, 48px);
+    margin: 0; /* Убираем стандартные отступы */
+}
+
+
+@font-face {
+    font-family: 'Nekst-SemiBold';
+    src: url('font/Nekst-SemiBold.woff2') format('woff2'),
+         url('font/Nekst-SemiBold.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Nekst-Light';
+    src: url('font/Nekst-Light.woff2') format('woff2'),
+         url('font/Nekst-Light.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@media (max-width: 768px) {
+    .Map {
+        padding-top: 30px;
+        margin-top: -30px; /* Компенсирует отступ .historys */
+        z-index: 0; /* Убирает возможное наложение */
+    }
+    
+    #map {
+        height: 400px !important;
+        width: 95% !important;
+        margin-top: 0 !important;
+    }
+
+    
+}
