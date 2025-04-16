@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
 ymaps.ready(() => {
     const map = new ymaps.Map("map", {
       center: [55.751244, 37.618423],
@@ -82,3 +85,6 @@ ymaps.ready(() => {
 
     map.geoObjects.add(placemark);
   });
+
+
+
