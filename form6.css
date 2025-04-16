@@ -8,7 +8,8 @@
   grid-template-columns: auto 1fr; /* Картинка слева, текст справа */
   gap: 20px;
   align-items: start;
-  height: 50vh;
+  min-height: 50vh;
+  height: auto;
   max-width: 1200px; /* Ограничиваем ширину контейнера */
   margin: 0 auto; /* Центрируем на странице */
   background-color: white;
