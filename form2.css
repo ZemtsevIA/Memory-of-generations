@@ -11,55 +11,56 @@
     box-sizing: border-box;
 }
 
-.group{
-    margin-top: 3%;
-    background-color: white;
-    border-radius: 50px;
-    width: 80%;
-    height: auto;
-    max-height: fit-content;
-    align-items: center;
-    justify-content: center;
-}
+
 
 h1 {
     font-family: 'Nekst-SemiBold', sans-serif;
     text-align: center;
     font-size: 3.5rem;
     font-size: clamp(24px, 3.5vw, 60px);
-    margin: 60px 0 40px 0; /* Отступ снизу для текста */
+    margin:30px 0 40px 0; /* Отступ снизу для текста */
     z-index: 1; /* Поднимаем над фоном */
 }
 
+.group {
+  margin-top: 3%;
+  background-color: white;
+  border-radius: 50px;
+  width: 80%;
+  height: auto;
+  max-height: fit-content;
+  display: flex; /* Добавляем flex для внутреннего расположения */
+  flex-direction: column; /* Вертикальное расположение элементов */
+  align-items: center; /* Центрирование по горизонтали */
+  padding: 40px; /* Добавляем внутренние отступы для группы */
+  box-sizing: border-box; /* Учитываем padding в общей ширине */
+}
+
 .info-text {
-    display: flex;
-    align-items: center; /* Выравнивание элементов по вертикали */
-    justify-content: center; /* Центрирование по горизонтали */
-    gap: 40px; /* Расстояние между текстом и изображением */
-    max-width: 1200px; /* Ограничение ширины контента */
-    width: 100%;
-    z-index: 1;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Равномерное распределение пространства */
+  gap: 40px;
+  width: 100%; /* Занимаем всю доступную ширину */
+  max-width: 1200px;
 }
 
 .info-text p {
-    font-family: 'Nekst-Thin', sans-serif;
-    flex: 1; /* Занимает доступное пространство */
-    margin-left: 40px;
-    font-size: clamp(18px, 2.0vw, 128px);
-    text-align: left;
-    margin-bottom: 40px;
-    max-width: calc(50% - 20px);
-    
+  font-family: 'Nekst-Thin', sans-serif;
+  flex: 1; /* Занимает 50% ширины */
+  margin-left: 0; /* Убираем отступ слева */
+  font-size: clamp(18px, 2.0vw, 128px);
+  text-align: left;
+  margin-bottom: 40px;
+  max-width: calc(50% - 20px); /* Учитываем gap */
 }
 
 .image-info {
-    width: 50%; /* Фиксированная ширина изображения */
-    height: auto; /* Сохраняем пропорции */
-    flex-shrink: 0; /* Запрещаем уменьшение */
-    max-width: calc(50% - 20px); /* Учитывает gap 40px */
-    object-fit: contain;
-    margin-right: 40px;
+  flex: 1; /* Занимает 50% ширины */
+  max-width: calc(50% - 20px); /* Учитываем gap */
+  height: auto;
+  object-fit: contain;
+  margin-right: 0; /* Убираем отступ справа */
 }
 
 .fon {
