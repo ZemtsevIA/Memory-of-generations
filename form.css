@@ -110,6 +110,14 @@
     display: block; /* Делаем блочным элементом для корректного центрирования */
 }
 
+
+
+
+
+
+
+
+
 @keyframes float {
     0%, 100% {
         transform: rotate(90deg) translateX(0);
@@ -180,6 +188,10 @@
     .angle {
         display: none; /* Скрыть стрелку на мобильных */
     }
+
+    .hero-section {
+        transform: translateY(20px); /* Меньшее смещение для мобилок */
+      }
 }
 
 
