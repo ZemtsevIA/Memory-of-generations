@@ -40,7 +40,7 @@
 
 .result p {
   font-family: 'Nekst-Light', sans-serif;
-  font-size: clamp(24px, 1.7vw, 128px);
+  font-size: clamp(24px, 1.7vw, 100px);
   line-height: 1.3;
   
 }
@@ -90,6 +90,41 @@
   .result p {
     font-size: clamp(18px, 4vw, 22px);
     margin-top: 10px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.text-content h1, 
+.text-content p {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.text-content p {
+  animation-delay: 0.2s;
+}
+
+
+@media (min-width: 1920px) {
+  .result {
+    max-width: 1600px;
+    gap: 60px;
+  }
+  
+  .result img {
+    width: 750px;
+    height: 500px;
+  }
+  
+  .result h1 {
+    font-size: clamp(48px, 4vw, 160px);
+  }
+  
+  .result p {
+    font-size: clamp(32px, 2vw, 120px);
   }
 }
 
