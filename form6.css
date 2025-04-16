@@ -84,7 +84,7 @@
   .result h1 {
     margin: 0;
     font-size: clamp(28px, 6vw, 32px);
-    line-height: 1.3;
+    
   }
 
   .result p {
@@ -121,12 +121,12 @@
   
   .result h1 {
     font-size: clamp(48px, 4vw, 160px);
-    line-height: 1.5; /* Сохраняем такой же как в основном стиле */
+    
   }
   
   .result p {
     font-size: clamp(32px, 2vw, 120px);
-    line-height: 1.3; /* Сохраняем такой же как в основном стиле */
+    
   }
 }
 

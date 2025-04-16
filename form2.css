@@ -49,7 +49,7 @@ h1 {
   font-family: 'Nekst-Thin', sans-serif;
   flex: 1; /* Занимает 50% ширины */
   margin-left: 0; /* Убираем отступ слева */
-  font-size: clamp(18px, 2.0vw, 100px);
+  font-size: clamp(18px, 2.0vw, 80px);
   text-align: left;
   margin-bottom: 40px;
   max-width: calc(50% - 20px); /* Учитываем gap */
