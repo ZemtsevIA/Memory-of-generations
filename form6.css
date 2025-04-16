@@ -35,13 +35,13 @@
   text-align: left;
   font-family: 'Nekst-Bold', sans-serif;
   font-size: clamp(32px, 3.2vw, 128px);
-  line-height: 1.5;
+  
 }
 
 .result p {
   font-family: 'Nekst-Light', sans-serif;
   font-size: clamp(24px, 1.7vw, 100px);
-  line-height: 1.3;
+  
   
 }
 
