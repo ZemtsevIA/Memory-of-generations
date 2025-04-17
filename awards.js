@@ -254,3 +254,20 @@ const awardsDatabase = {
 
     // Добавляйте новые записи по мере необходимости
 };
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Активация анимации для карточек при прокрутке
+    const cards = document.querySelectorAll('.awards-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 }); // Анимация начнется, когда 10% элемента видимы
+  
+    cards.forEach(card => observer.observe(card));
+  });
