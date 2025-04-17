@@ -1,13 +1,23 @@
-// Анимация карточек и наград при прокрутке
 document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.card, .awards-card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-  
-    cards.forEach(card => observer.observe(card));
-  });
+  // Select all sections, history cards, and award cards
+  const elements = document.querySelectorAll(
+      '.header, .hero-section, .info, .historys, .Map, .gallery, .slide-section, .footer, .historys .card, .gallery .awards-card'
+  );
+
+  // Create IntersectionObserver
+  const observer = new IntersectionObserver(
+      (entries) => {
+          entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  // Optionally unobserve after animation to improve performance
+                  observer.unobserve(entry.target);
+              }
+          });
+      },
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
+  );
+
+  // Observe each element
+  elements.forEach((element) => observer.observe(element));
+});

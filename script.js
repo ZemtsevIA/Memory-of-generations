@@ -1,8 +1,32 @@
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navMenu = document.querySelector('.nav-menu');
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navMenu = document.querySelector('.nav-menu');
 
-mobileMenuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+  if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✖' : '☰';
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.textContent = '☰';
+      });
+    });
+  }
+
+  // Существующий код для анимации карточек
+  const cards = document.querySelectorAll('.card, .awards-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
 });
 
 
