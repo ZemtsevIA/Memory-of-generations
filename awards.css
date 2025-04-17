@@ -214,3 +214,64 @@
 
     
 }
+
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Nekst-Light', sans-serif;
+}
+
+.modal-overlay h3{
+    text-align: center;
+    font-family: 'Nekst-Light', sans-serif;
+}
+
+.modal-overlay h4{
+    text-align: center;
+    font-family: 'Nekst-Light', sans-serif;
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    position: relative;
+    margin: 20px;
+    display: flex;          /* Добавляем flex-контейнер */
+    flex-direction: column; /* Располагаем элементы в колонку */
+    align-items: center;    /* Центрируем по горизонтали */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-image {
+    display: block;         /* Делаем изображение блочным элементом */
+    margin: 0 auto;         /* Автоматические отступы по бокам */
+    max-width: 100%;
+    height: auto;
+    max-height: 50vh;
+    margin-bottom: 15px;
+    object-fit: contain;    /* Сохраняет пропорции изображения */
+}
+
+.modal-content p{
+    font-family: 'Nekst-Light', sans-serif;
+}
