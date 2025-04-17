@@ -218,6 +218,9 @@
 
 
 
+/* Контейнер для flip-эффекта */
+/* Модальное окно */
+/* Модальное окно */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -232,48 +235,209 @@
     font-family: 'Nekst-Light', sans-serif;
 }
 
-.modal-overlay h3{
-    text-align: center;
-    font-family: 'Nekst-Light', sans-serif;
-}
-
-.modal-overlay h4{
-    text-align: center;
-    font-family: 'Nekst-Light', sans-serif;
-}
-
 .modal {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 500px;
     position: relative;
-    margin: 20px;
-    display: flex;          /* Добавляем flex-контейнер */
-    flex-direction: column; /* Располагаем элементы в колонку */
-    align-items: center;    /* Центрируем по горизонтали */
+    max-width: 95vw;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Кнопка закрытия */
 .close {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
     cursor: pointer;
+    color: #333;
+    z-index: 10;
 }
 
+/* Контейнер для flip-эффекта */
+.flip-card {
+    width: 100%;
+    perspective: 1000px;
+}
+
+/* Внутренний элемент, который будет вращаться */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    max-height: 85vh;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Стили для лицевой и обратной стороны */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    padding-bottom: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Обратная сторона повёрнута на 180 градусов */
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Класс для переворота */
+.flip-card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Стили для изображения */
 .modal-image {
-    display: block;         /* Делаем изображение блочным элементом */
-    margin: 0 auto;         /* Автоматические отступы по бокам */
     max-width: 100%;
-    height: auto;
-    max-height: 50vh;
+    max-height: 45%;
+    width: auto;
+    object-fit: contain;
     margin-bottom: 15px;
-    object-fit: contain;    /* Сохраняет пропорции изображения */
 }
 
-.modal-content p{
+/* Контент на лицевой стороне */
+.modal-content {
     font-family: 'Nekst-Light', sans-serif;
+    color: #333;
+    line-height: 1.4;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+    flex-grow: 1;
+}
+
+/* Контент на обратной стороне */
+.modal-details-content {
+    font-family: 'Nekst-Light', sans-serif;
+    color: #333;
+    line-height: 1.4;
+    width: 100%;
+    text-align: left;
+    padding: 0 15px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-size: 15px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.modal-details-content p {
+    margin: 5px 0;
+}
+
+/* Заголовки */
+.modal-title,
+.modal-subtitle,
+.modal-title-back,
+.modal-subtitle-back {
+    font-family: 'Nekst-Light', sans-serif;
+    color: #2a2a2a;
+    text-align: center;
+    margin: 8px 0;
+    word-break: break-word;
+    font-size: 18px;
+}
+
+/* Кнопки переворота */
+.flip-button,
+.flip-button-back {
+    position: absolute;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    background-color: #A02020;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Nekst-Light', sans-serif;
+    transform: translateY(50%);
+    margin: 0;
+}
+
+/* Контейнер для кнопок */
+.flip-button-container,
+.flip-button-back-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0; /* Убираем нижний отступ для точного позиционирования */
+    display: flex;
+    align-items: center;    /* Вертикальное центрирование */
+    justify-content: center;
+}
+
+.flip-button:hover,
+.flip-button-back:hover {
+    background-color: #801818;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .modal {
+        max-width: 98vw;
+    }
+
+    .flip-card-inner {
+        min-height: 450px;
+        max-height: 90vh;
+    }
+
+    .modal-details-content,
+    .modal-content {
+        font-size: 14px;
+    }
+
+    .modal-details-content p {
+        margin: 4px 0;
+    }
+
+    .flip-button,
+    .flip-button-back {
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-family: 'Nekst-Light', sans-serif;
+        transform: translateY(50%);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        padding: 20px;
+        padding-bottom: 0;
+    }
+
+    .modal-image {
+        max-height: 40%;
+    }
+
+    .modal-title,
+    .modal-subtitle,
+    .modal-title-back,
+    .modal-subtitle-back {
+        font-size: 16px;
+    }
+
+    .close {
+        top: 15px;
+        right: 15px;
+        font-size: 26px;
+    }
 }
 
 
