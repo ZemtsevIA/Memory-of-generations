@@ -72,42 +72,73 @@
         margin-top: 0 !important;
     }
 
+    .mobile-menu-btn {
+        opacity: 1 !important; /* Кнопка сразу видима */
+        transform: none !important; /* Отключаем смещение */
+        animation: none !important; /* Отключаем анимацию */
+    }
+
+    .header {
+        opacity: 1 !important; /* Заголовок сразу виден */
+        transform: none !important; /* Отключаем смещение */
+        animation: none !important; /* Отключаем анимацию */
+    }
+
     
 }
 
-/* Анимация появления */
 @keyframes slideUp {
-    from {
+  0% {
+      transform: translateY(100px);
       opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
+  }
+  100% {
       transform: translateY(0);
-    }
+      opacity: 1;
   }
-  
-  /* Применение анимации */
-  .header,
-  .Map,
-  .footer {
-    animation: slideUp 0.8s ease-out forwards;
-    opacity: 0;
-  }
-  
-  /* Задержки */
-  .header { animation-delay: 0.2s; }
-  .Map { animation-delay: 0.4s; }
-  .footer { animation-delay: 0.6s; }
-  
-  /* Для карты (если нужно анимировать её отдельно) */
-  #map {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-  }
-  
-  #map.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+}
+
+/* Initial styles for elements */
+.header,
+.Map,
+.Map h1,
+.Map p,
+#map,
+.footer {
+  opacity: 0; /* Start invisible */
+  transform: translateY(100px); /* Start 100px below */
+}
+
+/* Page-load animation */
+.header,
+.Map,
+.Map h1,
+.Map p,
+#map,
+.footer {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Staggered delays for page load */
+.header { animation-delay: 0.2s; }
+.Map { animation-delay: 0.4s; }
+.Map h1 { animation-delay: 0.6s; }
+.Map p { animation-delay: 0.8s; }
+#map { animation-delay: 1.0s; }
+.footer { animation-delay: 1.2s; }
+
+/* Scroll-based animation triggered by .visible class */
+.header.visible,
+.Map.visible,
+.Map h1.visible,
+.Map p.visible,
+#map.visible,
+.footer.visible {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Prevent page-load animation for elements below viewport */
+.Map:not(.visible),
+.footer:not(.visible) {
+  animation: none; /* Delay animation until visible on scroll */
+}
