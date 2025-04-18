@@ -49,7 +49,7 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: transform 0.9s ease, box-shadow 0.9s ease, scale 0.9s ease !important;
 }
 
 .card img {
@@ -62,7 +62,9 @@
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05) !important;
+    /*box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);*/
+    transition-timing-function: ease-in-out;
 }
 
 .card p:last-child {
@@ -88,8 +90,6 @@
     line-height: 1.5;
 }
 
-
-
 @font-face {
     font-family: 'Nekst-Light';
     src: url('font/Nekst-Light.woff2') format('woff2'),
@@ -102,28 +102,25 @@
     .veteran {
         min-height: auto;
         padding-bottom: 30px;
-        margin-bottom: 30px; /* Добавлен отступ снизу */
+        margin-bottom: 30px;
     }
-
 
     .cards-container {
         margin-top: 30px;
     }
 
     .mobile-menu-btn {
-        opacity: 1 !important; /* Кнопка сразу видима */
-        transform: none !important; /* Отключаем смещение */
-        animation: none !important; /* Отключаем анимацию */
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
     }
 
     .header {
-        opacity: 1 !important; /* Заголовок сразу виден */
-        transform: none !important; /* Отключаем смещение */
-        animation: none !important; /* Отключаем анимацию */
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
     }
 }
-
-
 
 @keyframes slideUp {
     0% {
@@ -144,8 +141,8 @@
 .cards-container,
 .card,
 .footer {
-    opacity: 0; /* Start invisible */
-    transform: translateY(100px); /* Start 100px below */
+    opacity: 0;
+    transform: translateY(100px);
 }
 
 /* Page-load animation */
@@ -196,5 +193,5 @@
 .cards-container:not(.visible),
 .card:not(.visible),
 .footer:not(.visible) {
-    animation: none; /* Delay animation until visible on scroll */
+    animation: none;
 }

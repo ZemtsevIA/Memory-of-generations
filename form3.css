@@ -62,7 +62,8 @@
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7) !important;
 }
 
 .card p:last-child {
