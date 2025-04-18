@@ -420,10 +420,13 @@
     .flip-card-back {
         padding: 20px;
         padding-bottom: 0;
+        height: auto;
+        max-height: fit-content;
     }
 
     .modal-image {
-        max-height: 40%;
+        max-height: 200px;
+        height: auto;
     }
 
     .modal-title,
