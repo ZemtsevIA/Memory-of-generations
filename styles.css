@@ -58,6 +58,7 @@ body {
     list-style: none;
     /* Убираем right: -150px */
     font-size: 20px; /* Сохраняем ваш размер текста */
+    z-index: 1000;
 }
 
 .nav-menu li {
@@ -194,6 +195,7 @@ body {
         align-items: center;
         padding: 1rem 0;
         transition: left 0.3s;
+        z-index: 1000;
     }
 
     .nav-menu.active {
