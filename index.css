@@ -82,3 +82,5 @@
 .footer:not(.visible) {
   animation: none; /* Prevent page-load animation for elements below viewport */
 }
+
+

@@ -223,5 +223,17 @@ body {
         position: relative;
         z-index: 101;
     }
+
+    .mobile-menu-btn {
+        opacity: 1 !important; /* Кнопка сразу видима */
+        transform: none !important; /* Отключаем смещение */
+        animation: none !important; /* Отключаем анимацию */
+    }
+
+    .header {
+        opacity: 1 !important; /* Заголовок сразу виден */
+        transform: none !important; /* Отключаем смещение */
+        animation: none !important; /* Отключаем анимацию */
+    }
 }
 

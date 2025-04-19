@@ -74,8 +74,8 @@
 }
 
 .awards-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7) !important;
 }
 
 .awards-card img {
@@ -420,10 +420,13 @@
     .flip-card-back {
         padding: 20px;
         padding-bottom: 0;
+        height: auto;
+        max-height: fit-content;
     }
 
     .modal-image {
-        max-height: 40%;
+        max-height: 200px;
+        height: auto;
     }
 
     .modal-title,
@@ -452,10 +455,24 @@
     }
 }
 
-/* Apply animation to gallery elements */
+/* Анимация для заголовка */
 .gallery h1 {
     animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
 }
+
+/* Анимация карточек с Intersection Observer */
+.awards-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.awards-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .gallery p {
     animation: slideUp 0.8s ease-out 0.2s forwards; /* Slight delay for staggered effect */
@@ -475,3 +492,4 @@
 .awards-card:nth-child(6) { animation-delay: 0.9s; }
 .awards-card:nth-child(7) { animation-delay: 1.0s; }
 .awards-card:nth-child(8) { animation-delay: 1.1s; }
+

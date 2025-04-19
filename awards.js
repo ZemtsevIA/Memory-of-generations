@@ -70,10 +70,19 @@ document.addEventListener('keydown', function(e) {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Активация анимации для карточек при прокрутке
+    const cards = document.querySelectorAll('.awards-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-
-
-
+    cards.forEach(card => observer.observe(card));
+});
 const awardsDatabase = {
     1: {
         description: "Орден Красной Звезды — советская государственная награда, учреждённая 6 апреля 1930 года. Знак выполнен в виде пятиконечной звезды с центральным медальоном, где изображён красноармеец в шинели и будёновке с винтовкой наперевес. По ободу медальона размещена надпись «Пролетарии всех стран, соединяйтесь!», внизу — серп и молот.",
