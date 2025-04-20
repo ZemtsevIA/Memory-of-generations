@@ -104,10 +104,7 @@
 
 
 @media (max-width: 768px) {
-    .blurred-image {
-        max-height: 500px;
-    }
-
+    
     .hero-section {
         min-height: 70vh; /* Увеличиваем минимальную высоту для размещения всех элементов */
         padding-bottom: 20px; /* Добавляем отступ снизу */
