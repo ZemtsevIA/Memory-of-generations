@@ -1,4 +1,9 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    window.scrollTo(0, 0);
   // Select all elements to animate
   const elements = document.querySelectorAll('.header, .Map, .Map h1, .Map p, #map, .footer');
 

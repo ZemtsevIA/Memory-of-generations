@@ -40,6 +40,7 @@
 }
 
 .card {
+    will-change: transform, box-shadow;
     width: 300px;
     min-height: 200px;
     background: #ffffff;
@@ -49,7 +50,17 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: transform 0.9s ease, box-shadow 0.9s ease, scale 0.9s ease !important;
+    transition: transform 3.5s cubic-bezier(0.6, 0, 0.4, 1), box-shadow 0.4s ease-in-out, opacity 0.4s ease-in-out !important;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.03) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9); /* Раскомментировано и улучшено */
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .card img {
@@ -61,11 +72,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.card:hover {
-    transform: translateY(-5px) scale(1.05) !important;
-    /*box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);*/
-    transition-timing-function: ease-in-out;
-}
+
 
 .card p:last-child {
     margin-bottom: 0;

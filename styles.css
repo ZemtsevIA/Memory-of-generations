@@ -40,11 +40,11 @@ body {
 }
 
 .logo img {
-    height: 40px;
+    height: 70px;
     margin-right: 10px;
     max-width: 100%;
     height: auto;
-    max-height: 40px;
+    max-height: 70px;
 }
 
 .logo-container {
@@ -109,7 +109,7 @@ body {
     }
 
     .logo img {
-        max-height: 35px;
+        max-height: 55px;
     }
 
     .nav-menu {
@@ -124,7 +124,7 @@ body {
     }
 
     .logo img {
-        max-height: 30px;
+        max-height: 50px;
     }
 
     .nav-menu {
@@ -143,7 +143,7 @@ body {
     }
 
     .logo img {
-        max-height: 25px;
+        max-height: 45px;
     }
 
     .nav-menu {
@@ -159,12 +159,17 @@ body {
 @media (max-width: 768px) {
     .header {
         background: #A02020;
-        padding: 1rem;
+        padding: 0; /* Убираем отступы у header */
+        max-height: 7vh;
     }
 
     .header-diagonal {
-        padding: 1rem;
+        padding: 1rem; /* Уменьшаем вертикальные отступы, сохраняем горизонтальные */
+        padding: 1rem 1rem 0px;
         justify-content: space-between;
+        align-items: flex-start; /* Выравниваем содержимое по верхнему краю */
+        margin: 0; /* Убираем внешние отступы */
+        top: 0; /* Прижимаем к верхнему краю */
     }
 
     .logo {
@@ -182,12 +187,12 @@ body {
 
     .logo img {
         width: auto;
-        max-height: 35px;
+        max-height: 45px;
     }
 
     .nav-menu {
         position: fixed;
-        top: 100px;
+        top: 7vh;
         left: -100%;
         background-color: #A02020;
         width: 100%;
@@ -218,22 +223,46 @@ body {
         background-color: #FFF3E2;
     }
 
-    .mobile-menu-btn {
+    /*.mobile-menu-btn {
         display: block;
         position: relative;
         z-index: 101;
     }
 
-    .mobile-menu-btn {
-        opacity: 1 !important; /* Кнопка сразу видима */
-        transform: none !important; /* Отключаем смещение */
-        animation: none !important; /* Отключаем анимацию */
-    }
+    /*.mobile-menu-btn {
+        opacity: 1 !important; /* Кнопка сразу видима 
+        transform: none !important; /* Отключаем смещение 
+        animation: none !important; /* Отключаем анимацию *//*
+        padding-top: 10px;
+    }*/
 
     .header {
         opacity: 1 !important; /* Заголовок сразу виден */
         transform: none !important; /* Отключаем смещение */
         animation: none !important; /* Отключаем анимацию */
+    }
+
+    .mobile-menu-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px; /* Пример: в 2 раза больше предполагаемой ширины кнопки (30px) */
+        height: 60px; /* Пример: в 2 раза больше предполагаемой высоты кнопки (30px) */
+        cursor: pointer; /* Указывает, что контейнер кликабелен */
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: #FFF3E2;
+        font-size: 1.5rem;
+        cursor: pointer;
+        width: 30px; /* Фиксируем размер кнопки */
+        height: 30px; /* Фиксируем размер кнопки */
+        padding: 0; /* Убираем padding для точного контроля */
+        line-height: 30px; /* Центрируем текст (например, ☰) */
+        text-align: center;
     }
 }
 
