@@ -220,7 +220,9 @@ const awardsDatabase = {
 };
 
 
-
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     // Активация анимации для карточек при прокрутке

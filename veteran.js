@@ -1,4 +1,9 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    window.scrollTo(0, 0);
   // Select all elements to animate
   const elements = document.querySelectorAll('.header, .veteran, .veteran h1, .veteran p, .cards-container, .card, .footer');
 
@@ -13,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
               }
           });
       },
-      { threshold: 0.1 } // Trigger when 10% of the element is visible
+      { threshold: 0.05 } // Trigger when 10% of the element is visible
   );
 
   // Observe each element
