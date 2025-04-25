@@ -272,6 +272,10 @@ body {
         max-height: 10vh;
     }
 
+    .nav-menu{
+        top: 10vh;
+    }
+
     .logo-container {
         max-width: 100px;
     }

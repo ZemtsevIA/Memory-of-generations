@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
               }
           });
       },
-      { threshold: 0.05 } // Trigger when 10% of the element is visible
+      { threshold: 0.005 } // Trigger when 10% of the element is visible
   );
 
   // Observe each element
