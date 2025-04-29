@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="modal.css">
     
 </head>
 <body>
@@ -60,7 +61,7 @@
                     <li><a href="awards.html">Награды</a></li>
                 </ul>
 
-                <a href="https://vk.com/zemec_44" target="_blank" class="footer-question">Есть вопрос? Задавайте</a>
+                <a href="#" class="footer-question" onclick="openModal()">Есть вопрос? Задавайте</a>
 
                 <p>Вся информация взята из открытых источников</p>
             </div>
@@ -68,8 +69,35 @@
 
     </footer>
 
+    <div class="contact-modal-overlay" id="contactModal">
+        <div class="contact-modal">
+            <span class="contact-close" onclick="closeModal()">×</span>
+            <form action="https://public.herotofu.com/v1/dc443e20-24f6-11f0-9a1d-63593c310008" method="post" accept-charset="UTF-8" class="contact-form">
+                <div>
+                    <label for="name">Ваше имя</label>
+                    <input name="Name" id="name" type="text" required />
+                </div>
+                <div>
+                    <label for="email">Ваш email</label>
+                    <input name="Email" id="email" type="email" required />
+                </div>
+                <div>
+                    <label for="problem">Ваша проблема</label>
+                    <textarea name="Problem" id="problem" required rows="4"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Отправить" />
+                    <div style="text-indent:-99999px; white-space:nowrap; overflow:hidden; position:absolute;" aria-hidden="true">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
     <script src="map.js"></script>
+    <script src="modal.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="awards.css">
     <link rel="stylesheet" href="footer-white.css">
+    <link rel="stylesheet" href="modal.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 </head>
 <body>
@@ -118,13 +119,39 @@
                     <li><a href="awards.html">Награды</a></li>
                 </ul>
 
-                <a href="https://vk.com/zemec_44" target="_blank" class="footer-question">Есть вопрос? Задавайте</a>
+                <a href="#" class="footer-question" onclick="openModal()">Есть вопрос? Задавайте</a>
 
                 <p>Вся информация взята из открытых источников</p>
             </div>
         </div>
 
     </footer>
+
+    <div class="contact-modal-overlay" id="contactModal">
+        <div class="contact-modal">
+            <span class="contact-close" onclick="closeModal()">×</span>
+            <form action="https://public.herotofu.com/v1/dc443e20-24f6-11f0-9a1d-63593c310008" method="post" accept-charset="UTF-8" class="contact-form">
+                <div>
+                    <label for="name">Ваше имя</label>
+                    <input name="Name" id="name" type="text" required />
+                </div>
+                <div>
+                    <label for="email">Ваш email</label>
+                    <input name="Email" id="email" type="email" required />
+                </div>
+                <div>
+                    <label for="problem">Ваша проблема</label>
+                    <textarea name="Problem" id="problem" required rows="4"></textarea>
+                </div>
+                <div>
+                    <input type="submit" value="Отправить" />
+                    <div style="text-indent:-99999px; white-space:nowrap; overflow:hidden; position:absolute;" aria-hidden="true">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 
@@ -165,6 +192,7 @@
 
     <script src="script.js"></script>
     <script src="awards.js"></script>
+    <script src="modal.js"></script>
     <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'931dad769d2c673c',t:'MTc0NDkxMTMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
 
