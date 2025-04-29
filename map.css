@@ -17,7 +17,6 @@
 }
 
 .Map #map {
-    
     height: 100%!important;
     width: 100% !important;
     margin-top: 20px !important;
@@ -42,7 +41,6 @@
     margin: 0; /* Убираем стандартные отступы */
 }
 
-
 @font-face {
     font-family: 'Nekst-SemiBold';
     src: url('font/Nekst-SemiBold.woff2') format('woff2'),
@@ -50,7 +48,6 @@
     font-weight: 400;
     font-display: swap;
 }
-
 
 @font-face {
     font-family: 'Nekst-Light';
@@ -84,8 +81,6 @@
         transform: none !important; /* Отключаем смещение */
         animation: none !important; /* Отключаем анимацию */
     }
-
-    
 }
 
 @keyframes slideUp {
@@ -145,23 +140,46 @@
 }
 
 .custom-balloon {
-    padding: 15px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
+    width: 700px; /* Increased width for better text fit */
+    max-height: 600px; /* Accommodate content without scroll */
+    box-sizing: border-box; /* Include padding in width */
+    overflow: hidden; /* No scroll on desktop */
+    overflow-x: hidden; /* Explicitly prevent horizontal scroll */
+    overflow-wrap: break-word; /* Ensure text wraps */
+    white-space: normal; /* Allow text to wrap naturally */
     font-family: 'Nekst-Light', sans-serif;
+    animation: none !important; /* Disable any animation */
+    opacity: 1 !important; /* Ensure immediate visibility */
+    transform: none !important; /* Remove any transform */
+}
+
+.custom-balloon * {
+    animation: none !important; /* Disable animations for all children */
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 .custom-balloon h3 {
-    margin: 0 0 10px;
+    margin: 0 0 15px;
     font-family: 'Nekst-SemiBold', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
+    color: #333;
 }
 
 .custom-balloon p {
     margin: 0 0 10px;
-    font-size: 14px;
+    font-size: 16px; /* Slightly larger for readability */
+    line-height: 1.6; /* Improved line spacing */
+    color: #555;
+}
+
+.custom-balloon p strong {
+    font-weight: bold;
+    color: #000;
 }
 
 .custom-balloon a {
@@ -172,4 +190,16 @@
 
 .custom-balloon a:hover {
     text-decoration: underline;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .custom-balloon {
+        width: 320px; /* Slightly wider for mobile */
+        max-height: 400px;
+        overflow-y: auto; /* Allow vertical scrolling on mobile */
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        overflow-wrap: break-word; /* Ensure text wraps */
+        white-space: normal; /* Allow text to wrap */
+    }
 }
