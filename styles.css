@@ -288,4 +288,25 @@ body {
 }
 
 
+@media (min-width: 376px) and (max-width: 391px) {
+    .header {
+        min-height: 50px;
+        max-height: 9vh;
+    }
+
+    .nav-menu{
+        top: 10vh;
+    }
+
+    .logo-container {
+        max-width: 100px;
+    }
+
+    .logo img {
+        max-height: 35px;
+    }
+
+    
+}
+
 

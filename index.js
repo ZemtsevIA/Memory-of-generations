@@ -1,4 +1,10 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
+    window.scrollTo(0, 0);
   // Select all sections, history cards, and award cards
   const elements = document.querySelectorAll(
       '.header, .hero-section, .info, .historys, .Map, .gallery, .slide-section, .footer, .historys .card, .gallery .awards-card'
