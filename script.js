@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function init() {
         var myMap = new ymaps.Map("map", {
             center: [55.751244, 37.618423],
-            zoom: 4,
+            zoom: 3,
             controls: ['zoomControl', 'geolocationControl', 'searchControl']
         });
   
@@ -178,8 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     balloonContent: `
                         <div class="custom-balloon">
                             <h3>${data.name}</h3>
-                            <p><strong>${data.veteran}</strong></p>
-                            <p>${data.description}</p>
+                            <p class="veteran-info"><strong>${data.veteran}</strong></p>
+                            
+                            <p class="reset-style" >${data.description}</p>
                         </div>
                     `
                 },
