@@ -268,7 +268,7 @@ body {
 
 @media (max-width: 376px) {
     .header {
-        min-height: 50px;
+        min-height: 70px !important;
         max-height: 10vh;
     }
 
@@ -290,7 +290,7 @@ body {
 
 @media (min-width: 376px) and (max-width: 391px) {
     .header {
-        min-height: 50px;
+        min-height: 70px !important;
         max-height: 9vh;
     }
 
