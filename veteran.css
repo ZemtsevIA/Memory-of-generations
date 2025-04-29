@@ -40,27 +40,35 @@
 }
 
 .card {
+    opacity: 1;
     will-change: transform, box-shadow;
     width: 300px;
     min-height: 200px;
     background: #ffffff;
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: transform 3.5s cubic-bezier(0.6, 0, 0.4, 1), box-shadow 0.4s ease-in-out, opacity 0.4s ease-in-out !important;
+    /* Transition для эффекта наведения */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .card:hover {
-    transform: translateY(-5px) scale(1.03) !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9); /* Раскомментировано и улучшено */
+    /* Плавное увеличение и усиление тени */
+    transform: scale(1.05) ;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 1.9);
 }
 
 .card.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Отключаем animation после завершения для .visible, чтобы не мешало transition */
+.card.visible {
+    animation: none;
 }
 
 .card img {
