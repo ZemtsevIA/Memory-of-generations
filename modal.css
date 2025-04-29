@@ -1,0 +1,144 @@
+.contact-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Nekst-Light', sans-serif;
+}
+
+/* Контейнер модального окна */
+.contact-modal {
+    position: relative;
+    max-width: 95vw;
+    width: 500px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+/* Кнопка закрытия */
+.contact-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.contact-close:hover {
+    color: #A02020;
+}
+
+/* Стили формы */
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Nekst-Light', sans-serif;
+}
+
+.contact-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    color: #2a2a2a;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="problem"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Nekst-Light', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="problem"]:focus {
+    border-color: #A02020;
+    outline: none;
+}
+
+.contact-form input[type="submit"] {
+    padding: 12px;
+    background-color: #A02020;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Nekst-Light', sans-serif;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #801818;
+    transform: scale(1.05);
+}
+
+/* Скрытое поле _gotcha */
+.contact-form [name="_gotcha"] {
+    display: none;
+}
+
+/* Стиль ссылки в футере */
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contact-modal {
+        max-width: 90vw;
+        padding: 20px;
+    }
+
+    .contact-form label {
+        font-size: 14px;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="problem"] {
+        font-size: 12px;
+    }
+
+    .contact-form input[type="submit"] {
+        font-size: 14px;
+    }
+
+    .contact-close {
+        font-size: 22px;
+    }
+}
+
+/* Анимация */
+@keyframes slideUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
