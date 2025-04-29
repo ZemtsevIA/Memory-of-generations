@@ -12,3 +12,5 @@ document.getElementById('contactModal').addEventListener('click', function(e) {
         closeModal();
     }
 });
+
+document.getElementById('redirect-url').value = window.location.href.replace('http://', 'https://');
