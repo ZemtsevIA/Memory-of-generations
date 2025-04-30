@@ -159,7 +159,8 @@ body {
     .header {
         background: #A02020;
         padding: 0; /* Убираем отступы у header */
-        max-height: 7vh;
+        max-height: 8vh;
+        height: auto;
     }
 
     .header-diagonal {
@@ -267,7 +268,29 @@ body {
 
 @media (max-width: 376px) {
     .header {
-        min-height: 50px;
+        min-height: 70px !important;
+        max-height: 10vh;
+    }
+
+    .nav-menu{
+        top: 10vh;
+    }
+
+    .logo-container {
+        max-width: 100px;
+    }
+
+    .logo img {
+        max-height: 35px;
+    }
+
+    
+}
+
+
+@media (max-height: 750px) {
+    .header {
+        min-height: 70px !important;
         max-height: 10vh;
     }
 
