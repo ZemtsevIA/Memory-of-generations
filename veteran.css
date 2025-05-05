@@ -65,10 +65,6 @@
     transform: translateY(0);
 }
 
-.card.visible {
-    animation: none;
-}
-
 .card img {
     width: 100%;
     height: 180px;
@@ -107,30 +103,6 @@
          url('font/Nekst-Light.woff') format('woff');
     font-weight: 400;
     font-display: swap;
-}
-
-@media (max-width: 768px) {
-    .veteran {
-        min-height: auto;
-        padding-bottom: 30px;
-        margin-bottom: 30px;
-    }
-
-    .cards-container {
-        margin-top: 30px;
-    }
-
-    .mobile-menu-btn {
-        opacity: 1 !important;
-        transform: none !important;
-        animation: none !important;
-    }
-
-    .header {
-        opacity: 1 !important;
-        transform: none !important;
-        animation: none !important;
-    }
 }
 
 @keyframes slideUp {
@@ -213,7 +185,7 @@
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 100 1000;
+    z-index: 1000;
     font-family: 'Nekst-Light', sans-serif;
 }
 
@@ -238,7 +210,7 @@
     font-size: 30px;
     cursor: pointer;
     color: #333;
-    z-index: 20; /* Увеличенный z-index для отображения поверх изображения */
+    z-index: 20;
 }
 
 .veteran-modal .modal-image {
@@ -276,11 +248,34 @@
 }
 
 @media (max-width: 768px) {
+    .veteran {
+        min-height: auto;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .cards-container {
+        margin-top: 30px;
+    }
+
+    /* Отключение анимации на мобильных устройствах */
+    .header,
+    .veteran,
+    .veteran h1,
+    .veteran p,
+    .cards-container,
+    .card,
+    .footer {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
     .veteran-modal {
-        max-width: 80vw; /* Модальное окно занимает 80% ширины экрана */
+        max-width: 80vw;
         width: 80vw;
-        max-height: 80vh; /* Ограничение высоты для активации скролла */
-        overflow-y: auto; /* Включение вертикального скролла */
+        max-height: 80vh;
+        overflow-y: auto;
         padding: 20px;
     }
 

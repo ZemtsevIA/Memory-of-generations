@@ -6,8 +6,28 @@ document.addEventListener('DOMContentLoaded', function () {
     // Прокрутка к началу страницы
     window.scrollTo(0, 0);
 
+    // Функция для проверки, находится ли элемент в области просмотра
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
     // Анимация для элементов
     const elements = document.querySelectorAll('.header, .veteran, .veteran h1, .veteran p, .cards-container, .card, .footer');
+    
+    // Проверяем элементы при загрузке страницы
+    elements.forEach((element) => {
+        if (isElementInViewport(element)) {
+            element.classList.add('visible');
+        }
+    });
+
+    // Настройка IntersectionObserver
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
@@ -17,11 +37,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         },
-        { threshold: 0.1 } // Увеличиваем порог для более надёжного срабатывания
+        {
+            threshold: 0.2, // Увеличиваем порог до 20%
+            rootMargin: '50px' // Добавляем отступ, чтобы анимация срабатывала раньше
+        }
     );
 
-    // Наблюдаем за каждым элементом
-    elements.forEach((element) => observer.observe(element));
+    // Наблюдаем за каждым элементом, если он ещё не видим
+    elements.forEach((element) => {
+        if (!element.classList.contains('visible')) {
+            observer.observe(element);
+        }
+    });
+
+    // Принудительное отображение верхних элементов
+    const topElements = document.querySelectorAll('.header, .veteran h1, .veteran p');
+    topElements.forEach((element) => {
+        element.classList.add('visible');
+    });
 
     // Обработчик клика по карточкам ветеранов
     document.querySelectorAll('.card').forEach(card => {
