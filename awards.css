@@ -6,29 +6,30 @@
     flex-direction: column;
     align-items: center;
     background-color: #8C2F2F;
-    gap: 15px; /* Отступ между h1 и p */
+    gap: 15px;
     padding-top: 5%;
     max-height: 1500px;
     height: auto;
 }
 
 .gallery h1 {
-    
     color: white;
-    
     font-size: clamp(28px, 2.7vw, 100px);
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+    will-change: opacity, transform;
 }
 
 .gallery p {
-    
     font-family: 'Nekst-Regular', sans-serif;
     text-align: center;
     color: white;
     max-width: 60%;
-    margin: 0; /* Сброс стандартных отступов */
+    margin: 0;
     font-size: clamp(20px, 1.2vw, 48px);
     margin-top: 20px;
-    
+    animation: slideUp 0.8s ease-out 0.2s forwards;
+    will-change: opacity, transform;
 }
 
 @font-face {
@@ -47,8 +48,6 @@
     font-display: swap;
 }
 
-
-
 .awards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -63,7 +62,6 @@
     background: #ffffff;
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
     overflow: hidden;
     text-align: center;
     padding: 15px;
@@ -71,12 +69,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.4s ease-in-out;
+    will-change: transform, box-shadow, opacity;
+}
+
+.awards-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .awards-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 6px 20px rgba(0, 2, 2, 1.2) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
 }
 
 .awards-card img {
@@ -116,22 +123,19 @@
 }
 
 .gallery .info-button {
-    margin-top: 15px !important;  /* Уменьшаем отступ сверху */
-    margin-bottom: 40px;         /* Добавляем отступ снизу */
-    padding: 12px 40px;         /* Оптимизируем размер под галерею */
-    font-size: 1.3rem;          /* Увеличиваем читаемость */
-    background-color: #ffffffdd; /* Полупрозрачный белый */
-    backdrop-filter: blur(5px); /* Эффект стекла */
-    transition: all 0.3s ease;  /* Плавные изменения */
+    margin-top: 15px;
+    margin-bottom: 40px;
+    padding: 12px 40px;
+    font-size: 1.3rem;
+    background-color: #ffffffdd;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
 }
 
 .gallery .info-button:hover {
-    background-color: #fff;     /* Полная непрозрачность при наведении */
-    transform: scale(1.05);     /* Легкое увеличение */
+    background-color: #fff;
+    transform: scale(1.05);
 }
-
-
-
 
 @media (max-width: 768px) {
     .gallery {
@@ -155,8 +159,6 @@
         max-width: 400px;
     }
 
-    /* Остальные стили из предыдущего ответа остаются без изменений */
-    
     .info-button {
         flex-shrink: 0;
         margin-top: auto;
@@ -176,19 +178,18 @@
         padding: 0 10px;
     }
 
-    
-
     .awards-card {
         padding: 15px;
         border-radius: 12px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         background: white;
         text-align: center;
-        transition: transform 0.2s;
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.4s ease-in-out;
     }
 
     .awards-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
     .awards-card img {
@@ -210,17 +211,8 @@
         color: #666;
         line-height: 1.3;
     }
-
-    
-
-    
 }
 
-
-
-
-/* Контейнер для flip-эффекта */
-/* Модальное окно */
 /* Модальное окно */
 .modal-overlay {
     position: fixed;
@@ -253,7 +245,7 @@
     font-size: 30px;
     cursor: pointer;
     color: #333;
-    z-index: 10;
+    z-index: 20;
 }
 
 /* Контейнер для flip-эффекта */
@@ -321,6 +313,8 @@
     margin-bottom: 15px;
     padding: 0 15px;
     flex-grow: 1;
+    overflow-y: auto;
+    max-height: 40vh;
 }
 
 /* Контент на обратной стороне */
@@ -336,6 +330,8 @@
     font-size: 15px;
     margin-bottom: 15px;
     flex-grow: 1;
+    overflow-y: auto;
+    max-height: 40vh;
 }
 
 .modal-details-content p {
@@ -378,9 +374,9 @@
     position: relative;
     width: 100%;
     text-align: center;
-    margin-bottom: 0; /* Убираем нижний отступ для точного позиционирования */
+    margin-bottom: 0;
     display: flex;
-    align-items: center;    /* Вертикальное центрирование */
+    align-items: center;
     justify-content: center;
 }
 
@@ -392,17 +388,19 @@
 /* Адаптивность */
 @media (max-width: 768px) {
     .modal {
-        max-width: 98vw;
+        max-width: 80vw;
+        width: 80vw;
     }
 
     .flip-card-inner {
-        min-height: 450px;
+        min-height: 350px;
         max-height: 90vh;
     }
 
     .modal-details-content,
     .modal-content {
         font-size: 14px;
+        max-height: 30vh;
     }
 
     .modal-details-content p {
@@ -415,6 +413,11 @@
         font-size: 1rem;
         font-family: 'Nekst-Light', sans-serif;
         transform: translateY(50%);
+    }
+
+    .flip-button-container,
+    .flip-button-back-container {
+        margin-bottom: 10px;
     }
 
     .flip-card-front,
@@ -438,12 +441,48 @@
     }
 
     .close {
-        top: 15px;
-        right: 15px;
+        top: 8px;
+        right: 8px;
         font-size: 26px;
     }
-}
 
+    /* Дополнительные стили для экранов с высотой менее 700px */
+    @media (max-height: 700px) {
+        .flip-card-inner {
+            min-height: 300px;
+            max-height: 90vh;
+        }
+
+        .modal-image {
+            max-height: 150px;
+        }
+
+        .modal-content,
+        .modal-details-content {
+            max-height: 20vh;
+        }
+
+        .modal-title,
+        .modal-subtitle,
+        .modal-title-back,
+        .modal-subtitle-back {
+            font-size: 14px;
+            margin: 6px 0;
+        }
+
+        .flip-button,
+        .flip-button-back {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            padding: 15px;
+            padding-bottom: 0;
+        }
+    }
+}
 
 @keyframes slideUp {
     0% {
@@ -455,42 +494,3 @@
         opacity: 1;
     }
 }
-
-/* Анимация для заголовка */
-.gallery h1 {
-    animation: slideUp 0.8s ease-out forwards;
-    opacity: 0;
-}
-
-/* Анимация карточек с Intersection Observer */
-.awards-card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.awards-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-.gallery p {
-    animation: slideUp 0.8s ease-out 0.2s forwards; /* Slight delay for staggered effect */
-}
-
-/* Apply animation to award cards with increasing delay */
-.awards-card {
-    opacity: 0; /* Start invisible to prevent flash before animation */
-    animation: slideUp 0.8s ease-out forwards;
-}
-
-.awards-card:nth-child(1) { animation-delay: 0.4s; }
-.awards-card:nth-child(2) { animation-delay: 0.5s; }
-.awards-card:nth-child(3) { animation-delay: 0.6s; }
-.awards-card:nth-child(4) { animation-delay: 0.7s; }
-.awards-card:nth-child(5) { animation-delay: 0.8s; }
-.awards-card:nth-child(6) { animation-delay: 0.9s; }
-.awards-card:nth-child(7) { animation-delay: 1.0s; }
-.awards-card:nth-child(8) { animation-delay: 1.1s; }
-

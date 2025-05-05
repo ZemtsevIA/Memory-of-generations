@@ -15,7 +15,7 @@ document.querySelectorAll('.awards-card').forEach(card => {
             modalContent.innerHTML = '<p>Описание отсутствует</p>';
         }
 
-        // Заполняем обратную сторону (без описания)
+        // Заполняем обратную сторону
         const modalDetailsContent = modal.querySelector('.modal-details-content');
         modal.querySelector('.modal-title-back').innerText = this.querySelector('h3').innerText;
         modal.querySelector('.modal-subtitle-back').innerText = Array.from(this.querySelectorAll('h4')).map(h4 => h4.innerText).join(' ');
@@ -56,7 +56,7 @@ document.querySelector('.modal-overlay').addEventListener('click', function(e) {
     if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('close')) {
         this.style.display = 'none';
         document.body.style.overflow = 'auto';
-        document.querySelector('.flip-card-inner'). Soleil.remove('flipped');
+        document.querySelector('.flip-card-inner').classList.remove('flipped');
     }
 });
 
@@ -69,20 +69,24 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     // Активация анимации для карточек при прокрутке
     const cards = document.querySelectorAll('.awards-card');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.05 });
 
     cards.forEach(card => observer.observe(card));
 });
+
 const awardsDatabase = {
     1: {
         description: "Орден Красной Звезды — советская государственная награда, учреждённая 6 апреля 1930 года. Знак выполнен в виде пятиконечной звезды с центральным медальоном, где изображён красноармеец в шинели и будёновке с винтовкой наперевес. По ободу медальона размещена надпись «Пролетарии всех стран, соединяйтесь!», внизу — серп и молот.",
@@ -148,7 +152,7 @@ const awardsDatabase = {
         weight: "27,93 г",
         firstRecipient: "Пограничник Н. Е. Гуляев (1938 г., бои у озера Хасан)"
     },
-    5: { // III степень
+    5: {
         title: "Орден Славы III степени",
         description: "Орден Славы — высшая солдатская награда СССР, учреждённая 8 ноября 1943 года. Имеет три степени, III степень — младшая. Знак представляет собой пятиконечную звезду с центральным медальоном, где изображена Спасская башня Кремля с лавровой ветвью и надписью «СЛАВА».",
         year: "1943",
@@ -215,25 +219,4 @@ const awardsDatabase = {
         weight: "21,8 г",
         firstRecipient: "Маршал Г.К. Жуков (июнь 1945)"
     }
-
-    // Добавляйте новые записи по мере необходимости
 };
-
-
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Активация анимации для карточек при прокрутке
-    const cards = document.querySelectorAll('.awards-card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 }); // Анимация начнется, когда 10% элемента видимы
-  
-    cards.forEach(card => observer.observe(card));
-  });

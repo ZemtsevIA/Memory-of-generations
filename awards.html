@@ -15,11 +15,10 @@
         <div class="header-diagonal">
             <div class="logo-container">
                 <div class="logo">
-                    <img src="ППТУСУР.png" alt="Логотип">
+                    <img src="ППТУСУР.png" alt="Логотип" loading="lazy">
                 </div>
             </div>
             
-
             <div class="mobile-menu-container">
                 <button class="mobile-menu-btn">☰</button>
             </div>
@@ -35,79 +34,70 @@
 
     <div class="gallery">
         <h1>Галерея наград</h1>
-        <p>В разделе “Галерея наград” представлена информация о наградах, полученных ветеранами в годы Великой Отечественной Войны, в последующем работающими в  ТУСУРе</p>
+        <p>В разделе “Галерея наград” представлена информация о наградах, полученных ветеранами в годы Великой Отечественной Войны, в последующем работающими в ТУСУРе</p>
  
-        
         <div class="awards-grid">
             <div class="awards-card" id="awardsCard1" data-card-id="1">
-                <img src="Awards/image 160.png" alt="Изображение награды">
+                <img src="Awards/image 160.png" alt="Изображение награды" loading="lazy">
                 <h3>Орден</h3>
                 <h4>Красной звезды</h4>
             </div>
 
             <div class="awards-card" id="awardsCard2" data-card-id="2">
-                <img src="Awards/image 161.png" alt="Изображение награды">
+                <img src="Awards/image 161.png" alt="Изображение награды" loading="lazy">
                 <h3>Медаль</h3>
                 <h4>"За боевые заслуги"</h4>
             </div>
 
             <div class="awards-card" data-card-id="3">
-                <img src="Awards/image 162.png" alt="Изображение награды">
+                <img src="Awards/image 162.png" alt="Изображение награды" loading="lazy">
                 <h3>Медаль</h3>
                 <h4>"За оборону</h4>
                 <h4>Ленинграда"</h4>
             </div>
 
             <div class="awards-card" data-card-id="4">
-                <img src="Awards/image 163.png" alt="Изображение награды">
+                <img src="Awards/image 163.png" alt="Изображение награды" loading="lazy">
                 <h3>Медаль</h3>
                 <h4>"За отвагу"</h4>
             </div>
 
             <div class="awards-card" data-card-id="5">
-                <img src="Awards/image 164.png" alt="Изображение награды">
+                <img src="Awards/image 164.png" alt="Изображение награды" loading="lazy">
                 <h3>Орден Славы</h3>
                 <h4>"||| степени"</h4>
             </div>
 
-            <div class="awards-card" id="awardsCard3" data-card-id="6" >
-                <img src="Awards/image 165.png" alt="Изображение награды">
+            <div class="awards-card" id="awardsCard3" data-card-id="6">
+                <img src="Awards/image 165.png" alt="Изображение награды" loading="lazy">
                 <h3>Орден</h3>
                 <h4>Отечественной войны</h4>
                 <h4>"|| степени"</h4>
             </div>
 
             <div class="awards-card" data-card-id="7">
-                <img src="Победа над Японией.png" alt="Изображение награды">
+                <img src="Победа над Японией.png" alt="Изображение награды" loading="lazy">
                 <h3>Медаль</h3>
                 <h4>"За Победу над Японией"</h4>
             </div>
 
             <div class="awards-card" data-card-id="8">
-                <img src="Победа над германией.jpg" alt="Изображение награды">
+                <img src="Победа над германией.jpg" alt="Изображение награды" loading="lazy">
                 <h3>Медаль</h3>
                 <h4>"За победу над Германией в Великой Отечественной войне 1941–1945 гг."</h4>
             </div>
-
-
-
-            
-
         </div>
-
-
     </div>
-
 
     <footer class="footer">
         <div class="footer-diagonal">
             <div class="footer-logo-container">
                 <div class="footer-logo">
-                    <img src="ТУСУР_ 1.png" alt="Логотип">
+                    <img src="ТУСУР_ 1.png" alt="Логотип" loading="lazy">
                 </div>
                 <div class="footer-logo-two">
-                    <img src="IT-ACADEMY_White.png" alt="Логоти ит-академии" id="it-academy">
-                    <img src="Цифровые волонтеры лого.png" alt="Логотип цифровых волонтёров">
+                    <img src="IT-ACADEMY_White.png" alt="Логоти ит-академии" id="it-academy" loading="lazy">
+                    <img src="Цифровые волонтеры лого.png" alt="Логотип цифровых волонтёров" loading="lazy">
                 </div>
             </div>
 
@@ -119,12 +109,11 @@
                     <li><a href="awards.html">Награды</a></li>
                 </ul>
 
-                <a href="#" class="footer-question" onclick="openModal()">Есть вопрос? Задавайте</a>
+                <a href="#" class="footer-question" onclick="openModal(event)">Есть вопрос? Задавайте</a>
 
                 <p>Вся информация взята из открытых источников</p>
             </div>
         </div>
-
     </footer>
 
     <div class="contact-modal-overlay" id="contactModal">
@@ -158,13 +147,9 @@
         <p>Форма успешно отправлена!</p>
     </div>
 
-
-
-
-    <!-- awards.html (модальное окно) -->
+    <!-- Модальное окно для наград -->
     <div class="modal-overlay">
         <div class="modal">
-            
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <!-- Лицевая сторона -->
@@ -172,7 +157,7 @@
                         <span class="close">×</span>
                         <h3 class="modal-title"></h3>
                         <h4 class="modal-subtitle"></h4>
-                        <img class="modal-image" alt="Изображение награды">
+                        <img class="modal-image" alt="Изображение награды" loading="lazy">
                         <div class="modal-content"></div>
                         <div class="flip-button-container">
                             <button class="flip-button">Подробнее</button>
@@ -193,15 +178,10 @@
         </div>
     </div>
 
-
-
     <script src="script.js"></script>
     <script src="awards.js"></script>
     <script src="modal.js"></script>
     <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'931dad769d2c673c',t:'MTc0NDkxMTMxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-
-
-
-
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93afa115ae4753af',t:'MTc0NjQ0MTcyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>

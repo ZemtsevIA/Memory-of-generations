@@ -1,4 +1,5 @@
-function openModal() {
+function openModal(e) {
+    e.preventDefault();
     document.getElementById('contactModal').style.display = 'flex';
     document.getElementById('redirect-url').value = window.location.href.replace(/^http:/, 'https:');
 }

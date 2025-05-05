@@ -213,7 +213,7 @@
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 100 1000;
     font-family: 'Nekst-Light', sans-serif;
 }
 
@@ -233,12 +233,12 @@
 
 .veteran-modal .close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     font-size: 30px;
     cursor: pointer;
     color: #333;
-    z-index: 10;
+    z-index: 20; /* Увеличенный z-index для отображения поверх изображения */
 }
 
 .veteran-modal .modal-image {
@@ -277,7 +277,10 @@
 
 @media (max-width: 768px) {
     .veteran-modal {
-        max-width: 98vw;
+        max-width: 80vw; /* Модальное окно занимает 80% ширины экрана */
+        width: 80vw;
+        max-height: 80vh; /* Ограничение высоты для активации скролла */
+        overflow-y: auto; /* Включение вертикального скролла */
         padding: 20px;
     }
 
@@ -295,8 +298,8 @@
     }
 
     .veteran-modal .close {
-        top: 15px;
-        right: 15px;
+        top: 8px;
+        right: 8px;
         font-size: 26px;
     }
 }
