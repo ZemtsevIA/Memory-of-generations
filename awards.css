@@ -223,7 +223,7 @@
     background: rgba(0, 0, 0, 0.5);
     display: none;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Центрируем по вертикали */
     z-index: 1000;
     font-family: 'Nekst-Light', sans-serif;
 }
@@ -447,39 +447,46 @@
     }
 
     /* Дополнительные стили для экранов с высотой менее 700px */
-    @media (max-height: 700px) {
+    @media (max-height: 750px) {
+        .modal {
+            max-height: 80vh; /* Уменьшаем высоту модального окна, чтобы влезало на экран */
+            width: 90vw;
+            transform: translateY(0); /* Убираем смещение, так как align-items: center центрирует */
+        }
+
         .flip-card-inner {
-            min-height: 300px;
-            max-height: 90vh;
-        }
-
-        .modal-image {
-            max-height: 150px;
-        }
-
-        .modal-content,
-        .modal-details-content {
-            max-height: 20vh;
-        }
-
-        .modal-title,
-        .modal-subtitle,
-        .modal-title-back,
-        .modal-subtitle-back {
-            font-size: 14px;
-            margin: 6px 0;
-        }
-
-        .flip-button,
-        .flip-button-back {
-            padding: 8px 16px;
-            font-size: 0.9rem;
+            min-height: 250px; /* Уменьшаем минимальную высоту */
+            max-height: 80vh; /* Уменьшаем высоту, чтобы соответствовать .modal */
         }
 
         .flip-card-front,
         .flip-card-back {
             padding: 15px;
             padding-bottom: 0;
+            max-height: 80vh; /* Уменьшаем высоту карточек */
+        }
+
+        .modal-image {
+            max-height: 120px; /* Уменьшаем высоту изображения */
+        }
+
+        .modal-content,
+        .modal-details-content {
+            max-height: 10vh; /* Уменьшаем высоту контейнеров для описания */
+        }
+
+        .modal-title,
+        .modal-subtitle,
+        .modal-title-back,
+        .modal-subtitle-back {
+            font-size: 12px; /* Уменьшаем размер шрифта заголовков */
+            margin: 4px 0; /* Уменьшаем отступы */
+        }
+
+        .flip-button,
+        .flip-button-back {
+            padding: 6px 12px; /* Уменьшаем размер кнопок */
+            font-size: 0.8rem; /* Уменьшаем шрифт кнопок */
         }
     }
 }

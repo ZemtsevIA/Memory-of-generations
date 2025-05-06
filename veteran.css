@@ -298,3 +298,66 @@
         font-size: 26px;
     }
 }
+
+
+.veteran-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Nekst-Light', sans-serif;
+}
+
+.veteran-modal {
+    position: relative;
+    max-width: 95vw;
+    width: 600px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    max-height: 80vh; /* Ограничение высоты */
+    overflow-y: auto; /* Прокрутка только внутри модального окна */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    z-index: 20;
+}
+
+/* Позиционирование крестика относительно .veteran-modal */
+.veteran-modal-overlay .close {
+    top: calc(10px + ((100vh - 80vh) / 2)); /* Учитываем центрирование модального окна */
+    right: calc(10px + ((100vw - 600px) / 2)); /* Учитываем ширину модального окна */
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .veteran-modal {
+        max-width: 80vw;
+        width: 80vw;
+        max-height: 80vh;
+        padding: 20px;
+    }
+
+    .veteran-modal-overlay .close {
+        top: calc(8px + ((100vh - 80vh) / 2));
+        right: calc(8px + ((100vw - 80vw) / 2));
+        font-size: 26px;
+    }
+}

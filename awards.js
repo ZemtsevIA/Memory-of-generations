@@ -38,6 +38,10 @@ document.querySelectorAll('.awards-card').forEach(card => {
         flipCardInner.classList.remove('flipped');
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+
+
+        document.querySelector('.modal-content').scrollTop = 0;
+        document.querySelector('.modal-details-content').scrollTop = 0;
     });
 });
 
