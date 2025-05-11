@@ -39,7 +39,6 @@ document.querySelectorAll('.awards-card').forEach(card => {
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
 
-
         document.querySelector('.modal-content').scrollTop = 0;
         document.querySelector('.modal-details-content').scrollTop = 0;
     });
@@ -48,10 +47,18 @@ document.querySelectorAll('.awards-card').forEach(card => {
 // Переворот карточки
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('flip-button')) {
-        document.querySelector('.flip-card-inner').classList.add('flipped');
+        const flipCardInner = document.querySelector('.flip-card-inner');
+        flipCardInner.classList.add('flipped');
+        setTimeout(() => {
+            document.querySelector('.modal-details-content').scrollTop = 0;
+        }, 600);
     }
     if (e.target.classList.contains('flip-button-back')) {
-        document.querySelector('.flip-card-inner').classList.remove('flipped');
+        const flipCardInner = document.querySelector('.flip-card-inner');
+        flipCardInner.classList.remove('flipped');
+        setTimeout(() => {
+            document.querySelector('.modal-content').scrollTop = 0;
+        }, 600);
     }
 });
 
@@ -73,6 +80,31 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// Улучшенная обработка прокрутки
+const modalContent = document.querySelector('.modal-content');
+modalContent.addEventListener('wheel', (e) => {
+    e.preventDefault(); // Предотвращаем стандартное поведение
+    e.stopPropagation();
+    modalContent.scrollTop += e.deltaY * 0.5; // Уменьшаем скорость для плавности
+}, { passive: false });
+
+modalContent.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+}, { passive: false });
+
+const modalDetailsContent = document.querySelector('.modal-details-content');
+modalDetailsContent.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    modalDetailsContent.scrollTop += e.deltaY * 0.5;
+}, { passive: false });
+
+modalDetailsContent.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+}, { passive: false });
+
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
@@ -90,6 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     cards.forEach(card => observer.observe(card));
 });
+
+// ... остальной код awardsDatabase остаётся без изменений ...
 
 const awardsDatabase = {
     1: {
@@ -141,7 +175,7 @@ const awardsDatabase = {
         firstRecipient: "Члены Военного совета Ленинградского фронта (вручение начато в июне 1943)"
     },
     4: {
-        description: "Медаль «За отвагу» — одна из наиболее почётных советских боевых наград, учреждённая 17 октября 1938 года. Круглая серебряная медаль диаметром 37 мм. На аверсе изображены три летящих танка Т-35, над ними — надпись «ЗА ОТВАГУ», внизу — стилизованная надпись «СССР» с серпом и молотом.",
+        description: "Медаль «За отвагу» — одна из наиболее почётных советских боевых наград, учреждённая 17 октября 1938 года. Медаль «За отвагу» серебристого цвета, имеет форму круга диаметром 37 мм с выпуклым бортиком с обеих сторон. На лицевой стороне медали в верхней части изображены три летящих самолёта И-16. Под самолётами помещена надпись в две строки «За отвагу».",
         year: "1938",
         material: "Серебро 925 пробы",
         criteria: "За личное мужество и храбрость...",

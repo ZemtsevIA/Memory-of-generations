@@ -223,7 +223,7 @@
     background: rgba(0, 0, 0, 0.5);
     display: none;
     justify-content: center;
-    align-items: center; /* Центрируем по вертикали */
+    align-items: center;
     z-index: 1000;
     font-family: 'Nekst-Light', sans-serif;
 }
@@ -258,7 +258,7 @@
 .flip-card-inner {
     position: relative;
     width: 100%;
-    min-height: 500px;
+    height: 500px;
     max-height: 85vh;
     transition: transform 0.6s;
     transform-style: preserve-3d;
@@ -270,13 +270,14 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    max-height: 85vh;
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 30px;
-    padding-bottom: 0;
+    padding-bottom: 20px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
@@ -313,8 +314,9 @@
     margin-bottom: 15px;
     padding: 0 15px;
     flex-grow: 1;
-    overflow-y: auto;
-    max-height: 40vh;
+    flex-shrink: 1;
+    overflow-y: auto; /* Включаем прокрутку */
+    max-height: 50vh; /* Ограничиваем высоту, например, половиной высоты видимой области */
 }
 
 /* Контент на обратной стороне */
@@ -330,8 +332,9 @@
     font-size: 15px;
     margin-bottom: 15px;
     flex-grow: 1;
+    flex-shrink: 1;
     overflow-y: auto;
-    max-height: 40vh;
+    max-height: 50vh;
 }
 
 .modal-details-content p {
@@ -354,7 +357,6 @@
 /* Кнопки переворота */
 .flip-button,
 .flip-button-back {
-    position: absolute;
     padding: 12px 24px;
     font-size: 1.1rem;
     background-color: #A02020;
@@ -364,14 +366,11 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-family: 'Nekst-Light', sans-serif;
-    transform: translateY(50%);
-    margin: 0;
 }
 
 /* Контейнер для кнопок */
 .flip-button-container,
 .flip-button-back-container {
-    position: relative;
     width: 100%;
     text-align: center;
     margin-bottom: 0;
@@ -393,17 +392,38 @@
     }
 
     .flip-card-inner {
-        min-height: 350px;
+        height: 450px;
         max-height: 90vh;
     }
 
-    .modal-details-content,
-    .modal-content {
-        font-size: 14px;
-        max-height: 30vh;
+    .flip-card-front,
+    .flip-card-back {
+        height: 100%;
+        max-height: 90vh;
+        padding: 20px;
+        padding-bottom: 20px;
     }
 
-    .modal-details-content p {
+    .modal-content {
+        font-size: 14px;
+        overflow-y: auto; /* Включаем прокрутку */
+        max-height: 50vh; /* Ограничиваем высоту */
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+    .modal-details-content {
+        font-size: 14px;
+        max-height: 50vh; /* Сохраняем скролл для обратной стороны */
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        overflow-y: auto; /* Сохраняем скролл */
+    }
+
+    .modal-details-content p,
+    .modal-content p {
         margin: 4px 0;
     }
 
@@ -412,20 +432,11 @@
         padding: 10px 20px;
         font-size: 1rem;
         font-family: 'Nekst-Light', sans-serif;
-        transform: translateY(50%);
     }
 
     .flip-button-container,
     .flip-button-back-container {
-        margin-bottom: 10px;
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-        padding: 20px;
-        padding-bottom: 0;
-        height: auto;
-        max-height: fit-content;
+        margin-bottom: 0;
     }
 
     .modal-image {
@@ -446,47 +457,59 @@
         font-size: 26px;
     }
 
-    /* Дополнительные стили для экранов с высотой менее 700px */
+    /* Дополнительные стили для экранов с высотой менее 750px */
     @media (max-height: 750px) {
         .modal {
-            max-height: 80vh; /* Уменьшаем высоту модального окна, чтобы влезало на экран */
+            max-height: 80vh;
             width: 90vw;
-            transform: translateY(0); /* Убираем смещение, так как align-items: center центрирует */
+            transform: translateY(0);
         }
 
         .flip-card-inner {
-            min-height: 250px; /* Уменьшаем минимальную высоту */
-            max-height: 80vh; /* Уменьшаем высоту, чтобы соответствовать .modal */
+            height: 350px;
+            max-height: 80vh;
         }
 
         .flip-card-front,
         .flip-card-back {
+            height: 100%;
+            max-height: 80vh;
             padding: 15px;
-            padding-bottom: 0;
-            max-height: 80vh; /* Уменьшаем высоту карточек */
+            padding-bottom: 20px;
         }
 
         .modal-image {
-            max-height: 120px; /* Уменьшаем высоту изображения */
+            max-height: 120px;
         }
 
-        .modal-content,
+        .modal-content {
+            overflow-y: auto; /* Включаем прокрутку */
+            max-height: 30vh; /* Меньшая высота для низких экранов */
+            min-height: 80px;
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
         .modal-details-content {
-            max-height: 10vh; /* Уменьшаем высоту контейнеров для описания */
+            max-height: 30vh; /* Сохраняем скролл для обратной стороны */
+            min-height: 80px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            overflow-y: auto; /* Сохраняем скролл */
         }
 
         .modal-title,
         .modal-subtitle,
         .modal-title-back,
         .modal-subtitle-back {
-            font-size: 12px; /* Уменьшаем размер шрифта заголовков */
-            margin: 4px 0; /* Уменьшаем отступы */
+            font-size: 12px;
+            margin: 4px 0;
         }
 
         .flip-button,
         .flip-button-back {
-            padding: 6px 12px; /* Уменьшаем размер кнопок */
-            font-size: 0.8rem; /* Уменьшаем шрифт кнопок */
+            padding: 6px 12px;
+            font-size: 0.8rem;
         }
     }
 }
@@ -501,3 +524,274 @@
         opacity: 1;
     }
 }
+
+
+/* ... остальные стили остаются без изменений ... */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* По умолчанию скрыто */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Nekst-Light', sans-serif;
+}
+
+.modal {
+    position: relative;
+    max-width: 95vw;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flip-card {
+    width: 100%;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Возвращаем фиксированную высоту */
+    max-height: 85vh;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%; /* Синхронизируем с .flip-card-inner */
+    max-height: 85vh;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    padding-bottom: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.modal-content {
+    font-family: 'Nekst-Light', sans-serif;
+    color: #333;
+    line-height: 1.4;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow-y: auto;
+    max-height: 40vh;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    pointer-events: auto;
+    box-sizing: border-box;
+    scrollbar-width: auto;
+    scrollbar-color: #A02020 #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #A02020;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal-details-content {
+    font-family: 'Nekst-Light', sans-serif;
+    color: #333;
+    line-height: 1.4;
+    width: 100%;
+    text-align: left;
+    padding: 0 15px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-size: 15px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow-y: auto;
+    max-height: 40vh; /* Синхронизируем с .modal-content */
+}
+
+@media (max-width: 768px) {
+    .modal {
+        max-width: 80vw;
+        width: 80vw;
+    }
+
+    .flip-card-inner {
+        height: 450px;
+        max-height: 90vh;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        height: 100%;
+        max-height: 90vh;
+        padding: 20px;
+        padding-bottom: 20px;
+    }
+
+    .modal-content {
+        font-size: 14px;
+        overflow-y: auto;
+        max-height: 40vh;
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        pointer-events: auto;
+    }
+
+    .modal-details-content {
+        font-size: 14px;
+        max-height: 40vh;
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        overflow-y: auto;
+    }
+}
+
+@media (max-height: 750px) {
+    .modal {
+        max-height: 80vh;
+        width: 90vw;
+    }
+
+    .flip-card-inner {
+        height: 350px;
+        max-height: 80vh;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        height: 100%;
+        max-height: 80vh;
+        padding: 15px;
+        padding-bottom: 20px;
+    }
+
+    .modal-content {
+        overflow-y: auto;
+        max-height: 30vh;
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+    .modal-details-content {
+        max-height: 30vh;
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+}
+
+/* ... остальные стили остаются без изменений ... */
+
+
+/* ... остальные стили остаются без изменений ... */
+
+.modal-content {
+    font-family: 'Nekst-Light', sans-serif;
+    color: #333;
+    line-height: 1.4;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow-y: auto;
+    max-height: 40vh;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    pointer-events: auto;
+    box-sizing: border-box;
+    scrollbar-width: auto;
+    scrollbar-color: #A02020 #f1f1f1;
+    min-height: 100px; /* Гарантируем минимальную высоту для взаимодействия */
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #A02020;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal-details-content {
+    font-family: 'Nekst-Light', sans-serif;
+    color: #333;
+    line-height: 1.4;
+    width: 100%;
+    text-align: left;
+    padding: 0 15px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-size: 15px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow-y: auto;
+    max-height: 40vh;
+    min-height: 100px; /* Гарантируем минимальную высоту для взаимодействия */
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-height: 85vh;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    padding-bottom: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    pointer-events: auto; /* Убеждаемся, что вся область интерактивна */
+    touch-action: auto; /* Разрешаем сенсорные события */
+}
+
+/* ... остальные стили остаются без изменений ... */
