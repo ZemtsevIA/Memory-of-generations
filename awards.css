@@ -733,13 +733,13 @@
     flex-shrink: 1;
     overflow-y: auto;
     max-height: 40vh;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch; /* Улучшает прокрутку на iOS */
+    touch-action: pan-y; /* Разрешает вертикальную прокрутку */
     pointer-events: auto;
     box-sizing: border-box;
     scrollbar-width: auto;
     scrollbar-color: #A02020 #f1f1f1;
-    min-height: 100px; /* Гарантируем минимальную высоту для взаимодействия */
+    min-height: 100px;
 }
 
 .modal-content::-webkit-scrollbar {
@@ -770,7 +770,10 @@
     flex-shrink: 1;
     overflow-y: auto;
     max-height: 40vh;
-    min-height: 100px; /* Гарантируем минимальную высоту для взаимодействия */
+    min-height: 100px;
+    -webkit-overflow-scrolling: touch; /* Добавляем поддержку для iOS */
+    touch-action: pan-y; /* Разрешаем вертикальную прокрутку */
+    pointer-events: auto;
 }
 
 .flip-card-front,
@@ -790,8 +793,57 @@
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-    pointer-events: auto; /* Убеждаемся, что вся область интерактивна */
-    touch-action: auto; /* Разрешаем сенсорные события */
+    pointer-events: auto;
+    touch-action: auto;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        font-size: 14px;
+        overflow-y: auto;
+        max-height: 40vh;
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        pointer-events: auto;
+    }
+
+    .modal-details-content {
+        font-size: 14px;
+        max-height: 40vh;
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        pointer-events: auto;
+    }
+}
+
+@media (max-height: 750px) {
+    .modal-content {
+        overflow-y: auto;
+        max-height: 30vh;
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        pointer-events: auto;
+    }
+
+    .modal-details-content {
+        max-height: 30vh;
+        min-height: 80px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        pointer-events: auto;
+    }
 }
 
 /* ... остальные стили остаются без изменений ... */

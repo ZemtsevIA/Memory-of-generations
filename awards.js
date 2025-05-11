@@ -82,27 +82,45 @@ document.addEventListener('keydown', function(e) {
 
 // Улучшенная обработка прокрутки
 const modalContent = document.querySelector('.modal-content');
-modalContent.addEventListener('wheel', (e) => {
-    e.preventDefault(); // Предотвращаем стандартное поведение
-    e.stopPropagation();
-    modalContent.scrollTop += e.deltaY * 0.5; // Уменьшаем скорость для плавности
+let lastTouchYModalContent = 0;
+modalContent.addEventListener('touchstart', (e) => {
+    lastTouchYModalContent = e.touches[0].clientY;
 }, { passive: false });
 
 modalContent.addEventListener('touchmove', (e) => {
     e.preventDefault();
     e.stopPropagation();
+    const touchY = e.touches[0].clientY;
+    const deltaY = lastTouchYModalContent - touchY; // Положительное значение — прокрутка вниз, отрицательное — вверх
+    modalContent.scrollTop += deltaY;
+    lastTouchYModalContent = touchY;
+}, { passive: false });
+
+modalContent.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    modalContent.scrollTop += e.deltaY * 0.5;
 }, { passive: false });
 
 const modalDetailsContent = document.querySelector('.modal-details-content');
-modalDetailsContent.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    modalDetailsContent.scrollTop += e.deltaY * 0.5;
+let lastTouchYModalDetails = 0;
+modalDetailsContent.addEventListener('touchstart', (e) => {
+    lastTouchYModalDetails = e.touches[0].clientY;
 }, { passive: false });
 
 modalDetailsContent.addEventListener('touchmove', (e) => {
     e.preventDefault();
     e.stopPropagation();
+    const touchY = e.touches[0].clientY;
+    const deltaY = lastTouchYModalDetails - touchY;
+    modalDetailsContent.scrollTop += deltaY;
+    lastTouchYModalDetails = touchY;
+}, { passive: false });
+
+modalDetailsContent.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    modalDetailsContent.scrollTop += e.deltaY * 0.5;
 }, { passive: false });
 
 if ('scrollRestoration' in history) {
